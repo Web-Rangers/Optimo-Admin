@@ -1,0 +1,104 @@
+.content {
+    width: 100vw;
+    height: 100vh;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    position: relative;
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 100px;
+        justify-content: center;
+        gap: 55px;
+        height: 100%;
+        .title {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .bold {
+                color: #201522;
+                font-family: Noto Sans;
+                font-size: 31px;
+                font-weight: 700;
+                line-height: 42px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+            .gray {
+                font-family: Noto Sans;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 27px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #898b94;
+            }
+        }
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            .input {
+                min-width: 400px;
+                span {
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #201522;
+                }
+            }
+            .fillButton {
+                padding: 15px 45px;
+                outline: none;
+                border: none;
+                background-color: #7f3ffc; //styleName: Text;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: center;
+                color: #fff;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+        }
+    }
+    .side {
+        height: 100%;
+        background-image: url('/images/Auth.png');
+        background-size: cover;
+        object-position: center;
+        border-radius: 40px;
+        padding: 50px 50px 0 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .guyContainer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            .guy {
+                background-image: url('/images/Guy.png');
+                height: 700px;
+                width: 100%;
+                background-size: cover;
+                object-position: center;
+            }
+        }
+        .title {
+            font-family: Samsung Sans;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 26px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #ffffff;
+        }
+    }
+}

@@ -1,0 +1,346 @@
+.container {
+    background-color: #ffffff;
+    height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .outlineButton {
+        padding: 13px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 2px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .content {
+        display: grid;
+        grid-template-columns: 270px 1fr;
+        grid-gap: 25px;
+        .leftSide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            .imageContainer {
+                position: relative;
+                margin-bottom: 8px;
+                image {
+                    border-radius: 50%;
+                }
+                .lockBlock {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    padding: 5px;
+                    border-radius: 50%;
+                    height: 34px;
+                    width: 34px;
+                    background-color: #ffffff;
+                    cursor: pointer;
+                }
+            }
+            .fullName {
+                font-family: Noto Sans;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 27px;
+                letter-spacing: 0em;
+                text-align: center;
+                color: #201522;
+            }
+            .mail {
+                font-family: Noto Sans;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19px;
+                letter-spacing: 0em;
+                text-align: center;
+                color: #201522;
+            }
+            .status {
+                font-family: Noto Sans;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19px;
+                letter-spacing: 0em;
+                text-align: center;
+                color: #5b6871;
+                margin-bottom: 27px;
+            }
+            .row {
+                display: flex;
+                gap: 10px;
+                width: 100%;
+                justify-content: center;
+                .outlineBlock {
+                    padding: 20px 0;
+                    flex: 1 1 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #cfd1d5;
+                    border-radius: 8px;
+                    max-width: 124px;
+                    font-family: Noto Sans;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 25px;
+                    letter-spacing: 0em;
+                    text-align: center;
+                    color: #000a12;
+                }
+            }
+            .statusBlock {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 17px;
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    .name {
+                        font-family: Noto Sans;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 25px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #898b94;
+                    }
+                    .value {
+                        font-family: Noto Sans;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 22px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #201522;
+                    }
+                }
+                .text {
+                    display: flex;
+                    gap: 5px;
+                    border: none;
+                    background-color: transparent;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #7f3ffc;
+                    height: min-content;
+                    cursor: pointer;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+
+        .tabContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex: 1 1 auto;
+            .tabList {
+                display: flex;
+                gap: 0;
+                .tab {
+                    padding: 10px 25px;
+                    display: flex;
+                    gap: 7px;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px 10px 0px 0px;
+                    cursor: pointer;
+                    color: #808080;
+                    path[fill] {
+                        fill: #808080;
+                    }
+                    path[fill='white'] {
+                        fill: white;
+                    }
+                    path[stroke] {
+                        stroke: #808080;
+                    }
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                    &.current {
+                        background-color: #f8f8f8;
+                        color: #7f3ffc;
+                        path[fill] {
+                            fill: #7f3ffc;
+                        }
+                        path[fill='white'] {
+                            fill: white;
+                        }
+                        path[stroke] {
+                            stroke: #7f3ffc;
+                        }
+                    }
+                    div {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+            .planeContainer {
+                position: relative;
+                background-color: #f8f8f8;
+                height: 100%;
+                .plane {
+                    display: none;
+                    padding: 25px;
+                    flex-direction: column;
+                    gap: 25px;
+                    &.show {
+                        display: flex;
+                    }
+                    .tabTitle {
+                        font-family: Noto Sans;
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 27px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #201522;
+                    }
+                    .doubleBlock {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-gap: 25px;
+                    }
+                    .tripleBlock {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        grid-gap: 25px;
+                    }
+                    .block {
+                        background-color: #fff;
+                        padding: 25px;
+                        border-radius: 8px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        .title {
+                            font-family: Noto Sans;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 22px;
+                            letter-spacing: 0em;
+                            text-align: left;
+                            color: #898b94;
+                        }
+                        .value {
+                            font-family: Noto Sans;
+                            font-size: 18px;
+                            font-weight: 600;
+                            line-height: 25px;
+                            letter-spacing: 0em;
+                            text-align: left;
+                            color: #201522;
+                        }
+                        .graphUp,
+                        .graphDown {
+                            margin-top: 10px;
+                            display: flex;
+                            align-items: center;
+                            div {
+                                display: flex;
+                                align-items: center;
+                            }
+                            //styleName: Captions;
+                            font-family: Noto Sans;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 19px;
+                            letter-spacing: 0em;
+                            text-align: left;
+                            color: #00b247;
+                            &.graphDown {
+                                color: #df371f;
+                            }
+                        }
+                    }
+                    .tableRow {
+                        grid-template-columns: 30% 30% 20% 20%;
+                    }
+                    .table{
+                        padding-top: 0;
+                    }
+                    .status {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-family: Noto Sans;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 22px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #201522;
+                        .indicator {
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            &.green {
+                                background-color: #00b247;
+                            }
+                            &.red {
+                                background-color: #df371f;
+                            }
+                            &.yellow {
+                                background-color: #ffb500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

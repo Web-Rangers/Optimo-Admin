@@ -1,0 +1,129 @@
+.container {
+    background-color: #f8f8f8;
+    height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .outlineButton {
+        padding: 13px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 2px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .block {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .title {
+            font-family: Noto Sans;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 27px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #201522;
+        }
+        .table {
+            padding-top: 0;
+        }
+        .tableRow {
+            grid-template-columns: 15% 35% 20% 20% 5% 5%;
+            border: 1px solid #cfd1d5;
+            min-height: 60px;
+        }
+        .tableHeader {
+            border: none;
+        }
+        .tableEditCell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+            }
+        }
+        .bookmakerWrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 25px;
+            column-gap: 25px;
+            .bookmaker {
+                display: flex;
+                gap: 5px;
+                border: 1px solid #cfd1d5;
+                padding: 15px;
+                border-radius: 8px;
+                .image {
+                    border-radius: 50%;
+                }
+                .name {
+                    flex: 1 1 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #201522;
+                }
+                .editBtn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}

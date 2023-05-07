@@ -1,0 +1,30 @@
+.radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    + label {
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        &::before {
+            content: ' ';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            margin-right: 10px;
+            background: transparent;
+            border: 1px solid #7F3FFC;
+            border-radius: 50%;
+        }
+    }
+    &:checked {
+        + label {
+            &::before {
+                background: radial-gradient(circle, rgba(127,63,252,1) 0%,  rgba(127,63,252,1) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+            }
+        }
+    }
+}

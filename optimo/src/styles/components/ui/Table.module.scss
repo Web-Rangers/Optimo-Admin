@@ -1,0 +1,210 @@
+.table {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: hidden;
+}
+
+.tableBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tableHeader {
+    background-color: transparent;
+}
+
+.headerBack {
+    background-color: transparent;
+    border-radius: 4px;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tableRowTemplate {
+    width: 100%;
+    min-height: 70px;
+    display: grid;
+    border-radius: 4px;
+    padding: 0 15px;
+    grid-template-columns: 7% 13% 35% 15% 11% 14% 5%;
+}
+
+.tableCellTemplate {
+    display: grid;
+    padding: 0;
+    height: 100%;
+    max-height: 70px;
+
+    display: flex;
+    align-items: center;
+}
+
+.tableIconCellTemplate {
+    display: grid;
+    padding: 10px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tableStatusCellTemplate {
+    display: grid;
+    padding: 11.5px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableHeaderCell {
+    background-color: transparent;
+    font-family: Noto Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #898b94;
+}
+
+.tableRow {
+    background-color: #ffffff;
+    height: 60px;
+}
+
+.tableCell {
+    //styleName: Text;
+    font-family: Noto Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #201522;
+}
+
+.rowImg {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tableStatus {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    width: min-content;
+    height: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.statusOpen {
+    background-color: #c4e7dc;
+    color: #00a875;
+}
+
+.statusClose {
+    background-color: #e7c4c4;
+    color: #e32323;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.paginationControls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+}
+
+.recordCounter,
+.paginatorTitle {
+    color: #1c1a27;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+}
+
+.paginationButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 40px;
+    gap: 13px;
+    .paginationOption {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #292b2f;
+        border-radius: 4px;
+        cursor: pointer;
+        &.currentOption {
+            color: #ffffff;
+            background-color: #722ed1;
+        }
+    }
+}
+
+.paginationBtn {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    cursor: pointer;
+}
+
+.paginationBtn * {
+    stroke: #722ed1;
+}
+
+.disable,
+.disable * {
+    pointer-events: none;
+    stroke: #b3b1bb;
+}
+
+.pageSelect {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+}

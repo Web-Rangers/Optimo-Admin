@@ -1,0 +1,255 @@
+.container {
+    background-color: #ffffff;
+    height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .outlineButton {
+        padding: 13px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 2px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .content {
+        display: flex;
+        gap: 25px;
+        height: 100%;
+        .teamsBlock {
+            display: flex;
+            flex-direction: column;
+            flex: 0 1 260px;
+            gap: 7px;
+            .rowTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 28px;
+                .images {
+                    display: flex;
+                    align-items: center;
+                    gap: 0;
+                    .teamIcon {
+                        z-index: 10;
+                        border: 1px solid #cfcfcf;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        padding: 8px;
+                        &:last-child {
+                            margin-left: -14px;
+                            z-index: 9;
+                        }
+                    }
+                }
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .date {
+                        font-family: Noto Sans;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 22px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #201522;
+                    }
+                    .tips {
+                        font-family: Noto Sans;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 19px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #898b94;
+                    }
+                }
+            }
+            .name {
+                font-family: Noto Sans;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 27px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #201522;
+            }
+            .row {
+                margin-top: 28px;
+                display: flex;
+                gap: 10px;
+                .kef {
+                    padding: 12px 15px;
+                    border: 1px solid #cfd1d5;
+                    border-radius: 8px;
+                    display: flex;
+                    gap: 8px;
+                    .title {
+                        font-family: Noto Sans;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 20px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #898b94;
+                    }
+                    .value {
+                        font-family: Noto Sans;
+                        font-size: 15px;
+                        font-weight: 500;
+                        line-height: 20px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #201522;
+                    }
+                }
+            }
+        }
+        .tabContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex: 1 1 auto;
+            .tabList {
+                display: flex;
+                gap: 0;
+                .tab {
+                    padding: 10px 25px;
+                    display: flex;
+                    gap: 7px;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px 10px 0px 0px;
+                    cursor: pointer;
+                    color: #808080;
+                    path[fill] {
+                        fill: #808080;
+                    }
+                    path[fill='white'] {
+                        fill: white;
+                    }
+                    path[stroke] {
+                        stroke: #808080;
+                    }
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                    &.current {
+                        background-color: #f8f8f8;
+                        color: #7f3ffc;
+                        path[fill] {
+                            fill: #7f3ffc;
+                        }
+                        path[fill='white'] {
+                            fill: white;
+                        }
+                        path[stroke] {
+                            stroke: #7f3ffc;
+                        }
+                    }
+                    div {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+            .planeContainer {
+                position: relative;
+                background-color: #f8f8f8;
+                height: 100%;
+                .plane {
+                    display: none;
+                    padding: 25px;
+                    flex-direction: column;
+                    &.show {
+                        display: flex;
+                    }
+                    .tabTitle {
+                        font-family: Noto Sans;
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 27px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #201522;
+                    }
+                    .tipsWrapper {
+                        padding-top: 25px;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        gap: 25px;
+                        .tip {
+                            padding: 15px;
+                            background-color: #fff;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            .name {
+                                font-family: Noto Sans;
+                                font-size: 16px;
+                                font-weight: 400;
+                                line-height: 22px;
+                                letter-spacing: 0em;
+                                text-align: left;
+                                color: #201522;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tableRow {
+    grid-template-columns: 40% 20% 20% 20%;
+    border-radius: 8px;
+    // max-height: 54px;
+    min-height: 54px;
+    .text {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}

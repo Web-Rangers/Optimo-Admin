@@ -1,0 +1,15 @@
+div.tableRow{
+    grid-template-columns: 40% 35% 15% 5% 5%;
+}
+
+.tableIconCell{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tableEditCell{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

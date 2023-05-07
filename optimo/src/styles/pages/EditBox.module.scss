@@ -1,0 +1,207 @@
+.container {
+    background-color: #f1f2f4;
+    min-height: calc(100vh - 80px);
+    padding: 35px 45px;
+    .pageHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .pageTitle {
+            display: flex;
+            gap: 25px;
+            font-family: Manrope;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 49px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #292b2f;
+            .fillButton {
+                padding: 15px 45px;
+                outline: none;
+                border: none;
+                background-color: #722ed1;
+                font-family: Manrope;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: center;
+                color: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        }
+    }
+    .boxInfo {
+        background-color: #fdfdfd;
+        margin-top: 30px;
+        border: none;
+        border-radius: 10px;
+        padding: 25px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        .boxImageContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .boxImage {
+                padding: 20px;
+                object-fit: contain;
+                background-color: #e5f5fc;
+                border-radius: 8px;
+            }
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex: 1 0 10%;
+            .inputBody {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .inputName {
+                    color: #292b2f;
+                    font-family: Manrope;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 25px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                }
+                .input {
+                    width: 100%;
+                    height: 54px;
+                    background-color: #efefef;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    input {
+                        height: 100%;
+                        width: 100%;
+                        border: none;
+                        background-color: transparent;
+                        padding: 16px;
+                        outline: none;
+                        font-family: Manrope;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 22px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #1c1a27;
+                    }
+                }
+            }
+        }
+    }
+    .productBlock {
+        margin-top: 30px;
+        background-color: #fdfdfd;
+        border: none;
+        border-radius: 10px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .left {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                span {
+                    font-family: Manrope;
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 33px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #292b2f;
+                }
+            }
+            .input {
+                height: 54px;
+                background-color: #efefef;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                padding-right: 16px;
+                width: 390px;
+                input {
+                    background-color: transparent;
+                    height: 100%;
+                    width: 100%;
+                    border: none;
+                    padding: 16px;
+                    outline: none;
+                    font-family: Manrope;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #1c1a27;
+                }
+            }
+        }
+    }
+}
+
+.textButton {
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #722ed1;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div.tableRow {
+    grid-template-columns: 40% 25% 20% 10% 5%;
+    height: 105px;
+    border: 1px solid #efefef;
+}
+
+div.tableCell {
+    max-height: 105px;
+}
+
+.tableNameCell {
+    height: 100%;
+    max-height: 105px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .photo {
+        background-color: #e5f5fc;
+        border-radius: 5px;
+        padding: 10px;
+        object-fit: contain;
+    }
+}
+
+.tableEditCell {
+    height: 100%;
+    max-height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .editBtn {
+        cursor: pointer;
+    }
+}

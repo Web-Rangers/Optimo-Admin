@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Manrope;
+  src: url('/fonts/Manrope-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: Samsung Sans;
+  src: url('/fonts/SamsungSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Noto Sans;
+  src: url('/fonts/NotoSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Noto Sans;
+  font-weight: 500;
+  src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: Inter;
+  font-weight: 500;
+  src: url('/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Samsung Sans;
+  font-weight: 500;
+  src: url('/fonts/SamsungSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Manrope;
+  font-weight: 500;
+  src: url('/fonts/Manrope-Bold.ttf') format('truetype');
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

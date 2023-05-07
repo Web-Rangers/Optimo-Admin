@@ -1,0 +1,131 @@
+.container {
+    background-color: #f1f2f4;
+    height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    > .row {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .outlineButton {
+        padding: 15px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .block {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .title {
+            //styleName: H3;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 27px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #201522;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .subTitle {
+                color: #898b94;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            .bookmaker{
+                border: 1px solid #CFD1D5;
+                padding: 15px;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                align-items: center;
+                flex: 1 1 auto;
+                .name{
+                    flex: 1 1 auto;
+                }
+                .editBtn{
+                    padding: 0 10px;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    cursor: pointer;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .tableRow {
+            grid-template-columns: 25% 25% 30% 15% 5%;
+            border: 1px solid #CFD1D5;
+            &.tableHeader{
+                border:none;
+            }
+        }
+        .tableEditCell{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+    }
+}

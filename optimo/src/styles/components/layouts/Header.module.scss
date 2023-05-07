@@ -1,0 +1,40 @@
+.header {
+    height: 80px;
+    max-height: 80px;
+    background-color: #fdfdfd;
+    border-bottom: 1px solid #E5E9EB;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 45px;
+    gap: 20px;
+    .profilePhoto {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .profileCol {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        .profileName {
+            //styleName: Captions;
+            font-family: Noto Sans;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #201522;
+        }
+        .profileRole {
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #898b94;
+        }
+    }
+}

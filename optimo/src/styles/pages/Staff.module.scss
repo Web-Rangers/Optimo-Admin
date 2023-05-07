@@ -1,0 +1,318 @@
+.container {
+    background-color: #f1f2f4;
+    height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    > .row {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .outlineButton {
+        padding: 15px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .block {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .title {
+            //styleName: H3;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 27px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #201522;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .subTitle {
+                color: #898b94;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            >.column {
+                flex: 0 0 50%;
+            }
+            .imageContainer, .borderedImageContainer {
+                position: relative;
+                padding-right: 6px;
+                &.borderedImageContainer{
+                    padding: 8px;
+                    border: 1px solid #989A9E;
+                    border-radius: 50%;
+                    height: 151px;
+                    width: 151px;
+                }
+                .image {
+                    border-radius: 50%;
+                }
+                .changeImageBtn {
+                    cursor: pointer;
+                    border-radius: 50%;
+                    padding: 6px;
+                    height: 36px;
+                    width: 36px;
+                    background-color: #fff;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+            .cont {
+                display: flex;
+                flex-direction: column;
+                flex: 1 1 auto;
+                gap: 10px;
+                .label {
+                    //styleName: Text;
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #898b94;
+                }
+                .value {
+                    //styleName: Text;
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #201522;
+                }
+            }
+        }
+    }
+    .tableRow {
+        grid-template-columns: 25% 25% 23% 17% 5% 5%;
+    }
+    .userTableRow {
+        grid-template-columns: 29% 30% 20% 13% 8%;
+    }
+}
+
+.tableNameCell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    .profilePhoto {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.tableBlockCell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tableEditCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .editBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        cursor: pointer;
+        div {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.blockBtn {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    gap: 8px;
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2e79d1;
+    text-decoration: underline;
+    cursor: pointer;
+    &.blocked {
+        color: #df371f;
+    }
+    div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.modalHeader {
+    min-width: 497px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .modalTitle {
+        color: #292b2f;
+        font-family: Manrope;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+    .modalClose,
+    .modalClose div {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.modalBody {
+    min-width: 497px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    .photoEdit {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .name {
+                color: #292b2f;
+                font-family: Manrope;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+            .textButton {
+                margin: 0;
+            }
+        }
+    }
+    .row {
+        display: flex;
+        gap: 15px;
+    }
+
+    .textButton {
+        margin: 15px 0;
+        font-family: Manrope;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        display: flex;
+        gap: 5px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #722ed1;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+.modalActions {
+    min-width: 497px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    .fillButton,
+    .outlineButton {
+        padding: 16px 45px;
+        border: 2px solid #722ed1;
+        background-color: transparent;
+        border-radius: 4px;
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #722ed1;
+    }
+    .fillButton {
+        background-color: #722ed1;
+        color: #fff;
+    }
+}

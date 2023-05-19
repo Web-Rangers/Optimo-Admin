@@ -9,10 +9,23 @@ import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import Radio from '@components/inputs/radio';
 import CheckBox from '@components/ui/CheckBox';
+import ConfirmModal from '@components/modals/ConfirmModal';
 
 const StaffEdit: NextPage = () => {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <>
+            {isOpen ? (
+                <ConfirmModal
+                    acceptText="Yes, save changes"
+                    cancelText="No, cancel"
+                    text="Are you sure you want to save changes?"
+                    title="Edit confirmation"
+                    onBackClick={() => setIsOpen(false)}
+                />
+            ) : (
+                false
+            )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
                     Staff
@@ -57,14 +70,19 @@ const StaffEdit: NextPage = () => {
                     </div>
                     <div className={styles.column}>
                         <div className={styles.subTitle}>Permission</div>
-                        <CheckBox id='perm1' label='checkbox'/>
-                        <CheckBox id='perm2' label='checkbox'/>
-                        <CheckBox id='perm3' label='checkbox'/>
+                        <CheckBox id="perm1" label="checkbox" />
+                        <CheckBox id="perm2" label="checkbox" />
+                        <CheckBox id="perm3" label="checkbox" />
                     </div>
                 </div>
                 <div className={styles.row}>
                     <button className={styles.outlineButton}>Cancel</button>
-                    <button className={styles.fillButton}>Save Changes</button>
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className={styles.fillButton}
+                    >
+                        Save Changes
+                    </button>
                 </div>
             </div>
         </>

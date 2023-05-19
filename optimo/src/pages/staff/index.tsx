@@ -9,6 +9,7 @@ import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
+import ConfirmModal from '@components/modals/ConfirmModal';
 
 const data = Array.from(new Array(20).keys()).map((key) => {
     return {
@@ -22,6 +23,7 @@ const data = Array.from(new Array(20).keys()).map((key) => {
 });
 
 const Staff: NextPage = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const columns = [
         {
             key: 'name',
@@ -74,6 +76,7 @@ const Staff: NextPage = () => {
                             className={styles.editBtn}
                             src={'/images/icons/ui/Trash.svg'}
                             onClick={() => {
+                                setIsOpen(true);
                                 return;
                             }}
                         />
@@ -85,6 +88,15 @@ const Staff: NextPage = () => {
 
     return (
         <>
+            {isOpen ? (
+                <ConfirmModal
+                    title="Deletion confirmation"
+                    text="Are you sure you want to delete this employee?"
+                    onBackClick={()=>setIsOpen(false)}
+                    cancelText='No, Keep it'
+                    acceptText='Yes, Delete'
+                />
+            ) : null}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
                     Staff

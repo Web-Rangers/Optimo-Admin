@@ -9,10 +9,23 @@ import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import Radio from '@components/inputs/radio';
 import CheckBox from '@components/ui/CheckBox';
+import ConfirmModal from '@components/modals/ConfirmModal';
 
 const StaffEdit: NextPage = () => {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <>
+            {isOpen ? (
+                <ConfirmModal
+                    acceptText="Yes, add"
+                    cancelText="No, cancel"
+                    text="Are you sure you want to add this employee?"
+                    title="Add confirmation"
+                    onBackClick={() => setIsOpen(false)}
+                />
+            ) : (
+                false
+            )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
                     Staff
@@ -79,7 +92,12 @@ const StaffEdit: NextPage = () => {
                 </div>
                 <div className={styles.row}>
                     <button className={styles.outlineButton}>Cancel</button>
-                    <button className={styles.fillButton}>Add staff</button>
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className={styles.fillButton}
+                    >
+                        Add staff
+                    </button>
                 </div>
             </div>
         </>

@@ -10,7 +10,7 @@ interface ColumnDefinition {
     dataIndex: any;
     headerStyle?: React.CSSProperties;
     cellStyle?: React.CSSProperties;
-    render?: (record: any, key: any) => React.ReactNode;
+    render?: (record: any, key: any, isEdit?:any, setIsEdit?:(isEdit:boolean)=>void) => React.ReactNode;
 }
 
 interface Pagination {
@@ -214,6 +214,7 @@ const TableRow = ({
     rowClassName,
     cellClassName,
 }: TableRowProps) => {
+    const [isEdit, setIsEdit] = useState(false);
     return (
         <div
             className={classNames(
@@ -227,7 +228,9 @@ const TableRow = ({
                     if (render) {
                         return render(
                             record[dataIndex],
-                            `data-${record.key}-${index}`
+                            `data-${record.key}-${index}`,
+                            isEdit,
+                            setIsEdit
                         );
                     }
                     return (

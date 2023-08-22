@@ -1,0 +1,428 @@
+.container {
+    background-color: #f8f8f8;
+    min-height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .outlineButton {
+        padding: 13px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 2px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .pageHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .tabSelect {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .selectName {
+                color: #201522;
+                font-family: Noto Sans;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            .tabs {
+                display: flex;
+                align-items: center;
+                gap: 22px;
+                .tabBtn {
+                    cursor: pointer;
+                    padding: 10px;
+                    color: #989a9e;
+                    font-family: Inter;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    color: #989a9e;
+                    &.currentTab {
+                        color: #7f3ffc;
+                    }
+                }
+            }
+        }
+    }
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .pastCompWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            > div {
+                flex: 1 1 calc(33% - 20px);
+                max-width: calc(33% - 20px);
+            }
+            .compBlock {
+                gap: 20px;
+                display: flex;
+                flex-direction: column;
+                .compImage {
+                    width: 100%;
+                    max-height: 200px;
+                    object-fit: cover;
+                    object-position: top;
+                    border-radius: 4px;
+                }
+                .title {
+                    margin-top: 11px;
+                    color: #191d23;
+                    font-family: Noto Sans;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+                .date {
+                    color: #898b94;
+                    font-family: Noto Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+            .winners {
+                display: flex;
+                flex-direction: column;
+                .title {
+                    overflow: hidden;
+                    color: #898b94;
+                    text-overflow: ellipsis;
+                    whitespace: nowrap;
+                    font-family: Noto Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+                .wrapper {
+                    display: flex;
+                    align-items: center;
+
+                    .winner {
+                        height: 38px;
+                        width: 38px;
+                        border-radius: 50%;
+                        margin-left: -4px;
+                        border: 1.5px solid #fff;
+                        background: #f7f4ff;
+                        color: #7f3ffc;
+                        text-align: center;
+                        font-family: Inter;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 18px; 
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .topContent {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: 1fr 2fr;
+            .blockWrapper {
+                display: flex;
+                gap: 20px;
+                > div {
+                    flex: 1 1 50%;
+                }
+            }
+            .compBlock {
+                gap: 5px;
+                display: flex;
+                flex-direction: column;
+                .compImage {
+                    width: 100%;
+                    max-height: 200px;
+                    object-fit: cover;
+                    object-position: top;
+                    border-radius: 4px;
+                }
+                .title {
+                    margin-top: 11px;
+                    color: #191d23;
+                    font-family: Noto Sans;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+                .date {
+                    overflow: hidden;
+                    color: #989a9e;
+                    text-overflow: ellipsis;
+                    whitespace: nowrap;
+                    font-family: Noto Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+        }
+        .bottomContent {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: 2fr 1fr;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .block {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            .flex50 {
+                max-width: 50%;
+            }
+            .title {
+                font-family: Noto Sans;
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 27px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #201522;
+                .addPrizeText {
+                    display: flex;
+                    color: #7f3ffc;
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    align-items: center;
+                    gap: 5px;
+                    cursor: pointer;
+                    div {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+            .text {
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+                display: flex;
+                gap: 8px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                color: #7f3ffc;
+                align-items: center;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+            .inputContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .title {
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #898b94;
+                }
+                .uploadFile {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 30px 0;
+                    border: 1px dashed #7f3ffc;
+                    border-radius: 4px;
+                }
+            }
+            .inputRow {
+                display: flex;
+                flex-direction: row;
+                gap: 15px;
+                > div {
+                    flex: 1 1 50%;
+                }
+                .nameInput > div {
+                    height: 62px;
+                }
+            }
+            .rewardWrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 15px;
+                .reward {
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 4px;
+                    border: 1px solid #cfd1d5;
+                    .rewardBody {
+                        padding: 15px;
+                        display: grid;
+                        grid-template-columns: 3fr 1fr;
+                        .rewardParams {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                            .prize {
+                                color: #201522;
+                                font-family: Noto Sans;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                            }
+                            .place {
+                                color: #898b94;
+                                font-family: Noto Sans;
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: normal;
+                            }
+                        }
+                        .prizeContainer {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .medal {
+                                width: 26px;
+                                height: 26px;
+                            }
+                        }
+                    }
+                    .rewardActions {
+                        padding: 15px;
+                        background: #f7f4ff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .text {
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            box-shadow: none;
+                            font-family: Noto Sans;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            &.editBtn {
+                                color: #7f3ffc;
+                            }
+                            &.deleteBtn {
+                                color: #df371f;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .divider {
+                width: 100%;
+                border: 1px solid #cfd1d5;
+                margin: 10px 0;
+            }
+            .compsWrapper {
+                display: grid;
+                grid-template-columns: 1fr;
+                row-gap: 1px;
+                column-gap: 0;
+                background-color: #eaecf0;
+                margin-left: -25px;
+                margin-right: -25px;
+                .compBlock {
+                    padding: 16px 25px;
+                    border: none;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 0;
+                    &.index {
+                        background-color: #f7f4ff;
+                    }
+                    .name {
+                        color: #201522;
+                        font-family: Noto Sans;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 20px;
+                    }
+                    .dates {
+                        color: #989a9e;
+                        font-family: Noto Sans;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+}

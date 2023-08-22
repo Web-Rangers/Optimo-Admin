@@ -5,58 +5,95 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface EventProps {
+    sport: string;
+    sportIcon: string;
     teamOne: string;
     teamOneImage: string;
     teamTwo: string;
     teamTwoImage: string;
     date: string;
     tips: string;
+    league: string;
 }
 
-const data: EventProps[] = Array.from(new Array(6).keys()).map((key) => {
+const data: EventProps[] = Array.from(new Array(8).keys()).map((key) => {
+    let icon = '';
+    let name = '';
+    switch (key) {
+        case 0:
+        case 2:
+        case 5:
+        case 6:
+            icon = '/images/icons/sports/football.png';
+            name = 'Football';
+            break;
+        case 1:
+            icon = '/images/icons/sports/basketball.png';
+            name = 'Basketball';
+            break;
+        case 3:
+        case 7:
+            icon = '/images/icons/sports/hockey.png';
+            name = 'Hockey';
+            break;
+        case 4:
+            icon = '/images/icons/sports/boxing.png';
+            name = 'Boxing';
+        default:
+            break;
+    }
     return {
+        sport: name,
+        sportIcon: icon,
         teamOne: 'Team name 1',
         teamOneImage: '/images/teams/team1.png',
         teamTwo: 'Team name 1',
         teamTwoImage: '/images/teams/team2.png',
         date: '24.03.2023',
         tips: '17 500',
+        league: 'LaLiga',
     };
 });
 
 const Event = ({
+    sport,
+    sportIcon,
     teamOne,
     teamOneImage,
     teamTwo,
     date,
     teamTwoImage,
     tips,
+    league,
 }: EventProps) => {
     return (
         <Link href={'/events/eventPage'}>
             <div className={styles.event}>
-                <div className={styles.teams}>
-                    <div className={styles.teamsIcons}>
-                        <Image
-                            className={styles.teamIcon}
-                            alt="team 1 image"
-                            src={teamOneImage}
-                            width={37}
-                            height={37}
-                        />
-                        VS
-                        <Image
-                            className={styles.teamIcon}
-                            alt="team 1 image"
-                            src={teamTwoImage}
-                            width={37}
-                            height={37}
-                        />
-                    </div>
-                    <div className={styles.teamsNames}>
-                        <span className={styles.name}>{teamOne}</span>
-                        <span className={styles.name}>{teamTwo}</span>
-                    </div>
+                <div className={styles.eventHeader}>
+                    <Image src={sportIcon} alt={sport} width={20} height={20} />
+                    {sport}
+                </div>
+                <div className={styles.teamIcons}>
+                    <Image
+                        className={styles.teamIcon}
+                        alt="team 1 image"
+                        src={teamOneImage}
+                        width={55}
+                        height={55}
+                    />
+                    VS
+                    <Image
+                        className={styles.teamIcon}
+                        alt="team 1 image"
+                        src={teamTwoImage}
+                        width={55}
+                        height={55}
+                    />
+                </div>
+                <div className={styles.teamsNames}>
+                    <div className={styles.league}>{league}</div>
+                    <span className={styles.name}>{teamOne} <div className={styles.score}>1</div></span>
+                    <span className={styles.boldName}>{teamTwo} <div className={styles.score}>2</div></span>
                 </div>
                 <div className={styles.footer}>
                     <span className={styles.date}>{date}</span>

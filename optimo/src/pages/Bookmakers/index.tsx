@@ -5,6 +5,11 @@ import Table from '@components/ui/Table';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
+import Modal from '@components/modals/Modal';
+import Input from '@components/inputs/Input';
+import { useState } from 'react';
+import Select from '@components/inputs/Select';
+import { title } from 'process';
 
 const data = Array.from(new Array(4).keys()).map((key) => {
     return {
@@ -15,6 +20,63 @@ const data = Array.from(new Array(4).keys()).map((key) => {
         edit: '',
     };
 });
+
+interface ModalProps {
+    onBackClick?: () => void;
+    onConfirm?: () => void;
+}
+
+function ChangeBookmakerModal({ onBackClick, onConfirm }: ModalProps) {
+    const [selectedItem, setSelectedItem] = useState('');
+    return (
+        <Modal onBackClick={onBackClick} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Change bookmaker</div>
+                <div className={styles.close} onClick={onBackClick}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.input}>
+                <Select
+                    items={Array.from(new Array(20).keys()).map((key) => {
+                        return {
+                            value: `${key}`,
+                            title: `Bookmaker${key}`,
+                        };
+                    })}
+                    onSelect={(newItem) => setSelectedItem(newItem)}
+                    title="Bookmakers"
+                />
+            </div>
+        </Modal>
+    );
+}
+
+function EditBookmakerModal({ onBackClick, onConfirm }: ModalProps) {
+    return (
+        <Modal onBackClick={onBackClick} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Edit bookmaker</div>
+                <div className={styles.close} onClick={onBackClick}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.inputContainer}>
+                <div className={styles.uploadFile}>
+                    <ReactSVG src="/images/icons/ui/CloudUpload.svg" />
+                    <span className={styles.inputText}>
+                        Drop image here, or{' '}
+                        <button className={styles.text}>browse</button>
+                    </span>
+                </div>
+            </div>
+            <div className={styles.inputs}>
+                <Input label="Name" />
+                <Input label="Rating" />
+            </div>
+        </Modal>
+    );
+}
 
 const Bookmakers: NextPage = () => {
     const columns = [
@@ -45,22 +107,27 @@ const Bookmakers: NextPage = () => {
             render: () => {
                 return (
                     <span className={styles.tableEditCell}>
-                        <Link href={'/staff/edit'}>
-                            <ReactSVG
-                                className={styles.editBtn}
-                                src={'/images/icons/ui/ThinPencil.svg'}
-                                onClick={() => {
-                                    return;
-                                }}
-                            />
-                        </Link>
+                        <ReactSVG
+                            className={styles.editBtn}
+                            src={'/images/icons/ui/ThinPencil.svg'}
+                            onClick={() => {
+                                setIsEdit(true);
+                                return;
+                            }}
+                        />
                     </span>
                 );
             },
         },
     ];
+    const [isEdit, setIsEdit] = useState<boolean>(false);
+    const [isChange, setIsChange] = useState<boolean>(false);
     return (
         <>
+            {isChange? <ChangeBookmakerModal onBackClick={()=>setIsChange(false)}/> : null}
+            {isEdit ? (
+                <EditBookmakerModal onBackClick={() => setIsEdit(false)} />
+            ) : null}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>Bookmakers</div>
                 <div className={styles.block}>
@@ -78,6 +145,7 @@ const Bookmakers: NextPage = () => {
                                 className={styles.editBtn}
                                 src={'/images/icons/ui/ThinPencil.svg'}
                                 onClick={() => {
+                                    setIsChange(true);
                                     return;
                                 }}
                             />
@@ -101,6 +169,7 @@ const Bookmakers: NextPage = () => {
                                 className={styles.editBtn}
                                 src={'/images/icons/ui/ThinPencil.svg'}
                                 onClick={() => {
+                                    setIsChange(true);
                                     return;
                                 }}
                             />
@@ -124,6 +193,7 @@ const Bookmakers: NextPage = () => {
                                 className={styles.editBtn}
                                 src={'/images/icons/ui/ThinPencil.svg'}
                                 onClick={() => {
+                                    setIsChange(true);
                                     return;
                                 }}
                             />
@@ -143,7 +213,7 @@ const Bookmakers: NextPage = () => {
                         columns={columns}
                         data={data}
                         rowClassName={styles.tableRow}
-                      headerClassName={styles.tableHeader}  
+                        headerClassName={styles.tableHeader}
                     />
                 </div>
             </div>

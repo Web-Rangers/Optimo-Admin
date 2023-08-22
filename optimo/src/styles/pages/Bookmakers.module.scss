@@ -129,3 +129,101 @@
         
     }
 }
+
+.modal{
+    max-width: 730px;
+    width: 50%;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+    }
+    .close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    .title {
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #898b94;
+    }
+    .uploadFile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 0;
+        border: 1px dashed #7f3ffc;
+        border-radius: 4px;
+        .inputText{
+            display: flex;
+            flex-direction: row;
+        }
+        .text {
+            div {
+                display: flex;
+                align-items: center;
+            }
+            display: flex;
+            gap: 8px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #7f3ffc;
+            align-items: center;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+    }
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    gap: 15px;
+    >div:first-child {
+        flex: 1 0 70%;
+    }
+}

@@ -1,0 +1,137 @@
+.modal{
+    padding: 30px;
+    gap: 20px;
+}
+
+.header {
+    min-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+    }
+    .close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: transparent;
+    .languageWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0;
+        .langTab {
+            cursor: pointer;
+            display: flex;
+            padding: 7px 25px;
+            align-items: center;
+            gap: 7px;
+            div {
+                display: flex;
+                align-items: center;
+            }
+            &.selectedTab {
+                color: #7f3ffc;
+                border-radius: 10px 10px 0px 0px;
+                background: #f8f8f8;
+            }
+            color: #000;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+    .inputBody {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .textInput {
+            height: 140px;
+            resize: none;
+            outline: none;
+            border-radius: 4px;
+            border: 1px solid #989a9e;
+            background: #fff;
+            padding: 12px;
+            color: #201522;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        border-radius: 4px;
+        background: #f8f8f8;
+        .counter {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #898b94;
+            font-family: Noto Sans;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}
+.modalActions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    .outlineButton {
+        padding: 13px 45px;
+        outline: none;
+        background-color: transparent;
+        border: 2px solid #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #7f3ffc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .fillButton {
+        padding: 15px 45px;
+        outline: none;
+        border: none;
+        background-color: #7f3ffc; //styleName: Text;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+}

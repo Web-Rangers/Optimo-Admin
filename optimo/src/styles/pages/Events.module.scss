@@ -53,7 +53,7 @@
     }
     .eventsWrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         row-gap: 20px;
         column-gap: 24px;
         .event {
@@ -62,48 +62,77 @@
             padding: 25px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            .teams {
+            gap: 12px;
+            .eventHeader {
                 display: flex;
-                flex-direction: row;
-                gap: 10px;
-                .teamsIcons {
-                    padding: 15px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    border: 1px solid #cfd1d5;
-                    border-radius: 8px;
-                    gap: 12px;
-                    font-family: Noto Sans;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 22px;
-                    letter-spacing: 0em;
-                    text-align: left;
-                    color: #898b94;
-                    .teamIcon {
-                        border: 1px solid #cfcfcf;
-                        border-radius: 50%;
-                        padding: 6px;
-                    }
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+                color: #201522;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+            }
+            .teamIcons {
+                padding: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 13px;
+                color: #989a9e;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                .teamIcon {
+                    border: 2px solid #cfcfcf;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    padding: 9px;
                 }
-                .teamsNames {
+            }
+            .teamsNames {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 7px;
+                padding: 0;
+                .league {
+                    color: #989a9e;
+                    font-family: Noto Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+                .name {
+                    width: 100%;
                     display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
+                    align-items: center;
                     justify-content: space-between;
-                    padding: 20px 0;
-                    .name {
-                        font-family: Noto Sans;
-                        font-size: 18px;
-                        font-weight: 500;
-                        line-height: 25px;
-                        letter-spacing: 0em;
-                        text-align: left;
-                        color: #201522;
-                    }
+                    color: #6f6f6f;
+                    font-family: Noto Sans;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%;
+                }
+                .boldName {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #201522;
+                    font-family: Noto Sans;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 140%; 
                 }
             }
             .footer {

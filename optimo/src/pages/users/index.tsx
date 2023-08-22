@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
+import Link from 'next/link';
 
 interface StuffProfile {
     name: string;
@@ -42,20 +43,26 @@ const Users: NextPage = () => {
             dataIndex: 'profile',
             render: (profile: StuffProfile) => {
                 return (
-                    <span className={styles.tableNameCell}>
-                        <ReactSVG src="/images/icons/ui/chevronRight.svg" />
-                        <Image
-                            className={styles.profilePhoto}
-                            src={profile.photo}
-                            alt="profile photo"
-                            width={45}
-                            height={45}
-                        />
-                        <div className={styles.col}>
-                            <span className={styles.name}>{profile.name}</span>
-                            <span className={styles.mail}>{profile.mail}</span>
-                        </div>
-                    </span>
+                    <Link href={'/users/userPage'}>
+                        <span className={styles.tableNameCell}>
+                            <ReactSVG src="/images/icons/ui/chevronRight.svg" />
+                            <Image
+                                className={styles.profilePhoto}
+                                src={profile.photo}
+                                alt="profile photo"
+                                width={45}
+                                height={45}
+                            />
+                            <div className={styles.col}>
+                                <span className={styles.name}>
+                                    {profile.name}
+                                </span>
+                                <span className={styles.mail}>
+                                    {profile.mail}
+                                </span>
+                            </div>
+                        </span>
+                    </Link>
                 );
             },
         },

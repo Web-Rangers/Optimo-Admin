@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import Table from '@components/ui/Table';
+import Select from '@components/inputs/Select';
 
 interface StuffProfile {
     name: string;
@@ -101,7 +102,7 @@ const UserPage: NextPage = () => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.pageTitle}>users</div>
+                <div className={styles.pageTitle}>Users</div>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
                         <div className={styles.imageContainer}>
@@ -164,7 +165,36 @@ const UserPage: NextPage = () => {
                         </div>
                         <div className={styles.planeContainer}>
                             <Plane currentValue={tab} value={0}>
-                                <div className={styles.tabTitle}>Statistic</div>
+                                <div className={styles.tabTitle}>
+                                    Balance
+                                    <span className={styles.filterText}>
+                                        show data for{' '}
+                                        <Select
+                                            title=""
+                                            items={[
+                                                {
+                                                    value: 'day',
+                                                    title: 'day',
+                                                },
+                                                {
+                                                    value: 'week',
+                                                    title: 'week',
+                                                },
+                                                {
+                                                    value: 'month',
+                                                    title: 'month',
+                                                },
+                                                {
+                                                    value: 'year',
+                                                    title: 'year',
+                                                },
+                                            ]}
+                                            defaultValue="week"
+                                            onSelect={() => 0}
+                                            variant="text"
+                                        />
+                                    </span>
+                                </div>
                                 <div className={styles.doubleBlock}>
                                     <div className={styles.block}>
                                         <span className={styles.title}>

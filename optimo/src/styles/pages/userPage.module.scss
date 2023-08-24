@@ -242,6 +242,8 @@
                         display: flex;
                     }
                     .tabTitle {
+                        display: flex;
+                        justify-content: space-between;
                         font-family: Noto Sans;
                         font-size: 20px;
                         font-weight: 600;
@@ -249,6 +251,16 @@
                         letter-spacing: 0em;
                         text-align: left;
                         color: #201522;
+                        .filterText {
+                            display: flex;
+                            gap: 7px;
+                            color: #201522;
+                            font-family: Noto Sans;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                        }
                     }
                     .doubleBlock {
                         display: grid;
@@ -310,7 +322,7 @@
                     .tableRow {
                         grid-template-columns: 30% 30% 20% 20%;
                     }
-                    .table{
+                    .table {
                         padding-top: 0;
                     }
                     .status {

@@ -28,9 +28,15 @@ const data = Array.from(new Array(5).keys()).map((key) => {
     };
 });
 
-const renderText = (text: string) => {
-    return <div className={styles.text}>{text}</div>;
-};
+const subData = Array.from(new Array(5).keys()).map((key) => {
+    return {
+        id: 3066+key,
+        nickname: 'Venture One - 9292',
+        payDate: '06.06.2022',
+        amount: '$11 400',
+        expDate: '06.06.2022',
+    };
+});
 
 const UserPage: NextPage = () => {
     const [tab, setTab] = useState(0);
@@ -58,6 +64,35 @@ const UserPage: NextPage = () => {
             </div>
         );
     };
+
+    const subColumns = [
+        {
+            key: 'id',
+            title: 'ID',
+            dataIndex: 'id',
+        },
+        {
+            key: 'nickname',
+            title: 'Nickname',
+            dataIndex: 'nickname',
+        },
+        {
+            key: 'payDate',
+            title: 'Payment date',
+            dataIndex: 'payDate',
+        },
+        {
+            key: 'amount',
+            title: 'Amount',
+            dataIndex: 'amount',
+        },
+        {
+            key: 'expDate',
+            title: 'Expiration date',
+            dataIndex: 'expDate',
+        },
+    ];
+
     const columns = [
         {
             key: 'type',
@@ -162,6 +197,12 @@ const UserPage: NextPage = () => {
                                     Transactions
                                 </span>
                             </Tab>
+                            <Tab currentValue={tab} value={2}>
+                                <ReactSVG src="/images/icons/ui/Group1.svg" />
+                                <span className={styles.tabTitle}>
+                                    Subscribers
+                                </span>
+                            </Tab>
                         </div>
                         <div className={styles.planeContainer}>
                             <Plane currentValue={tab} value={0}>
@@ -256,6 +297,17 @@ const UserPage: NextPage = () => {
                                     columns={columns}
                                     data={data}
                                     rowClassName={styles.tableRow}
+                                    className={styles.table}
+                                />
+                            </Plane>
+                            <Plane currentValue={tab} value={2}>
+                                <div className={styles.tabTitle}>
+                                    Subscribers
+                                </div>
+                                <Table
+                                    columns={subColumns}
+                                    data={subData}
+                                    rowClassName={styles.tableSubRow}
                                     className={styles.table}
                                 />
                             </Plane>

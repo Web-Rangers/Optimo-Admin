@@ -322,6 +322,9 @@
                     .tableRow {
                         grid-template-columns: 30% 30% 20% 20%;
                     }
+                    .tableSubRow {
+                        grid-template-columns: 15% 30% 20% 15% 20%;
+                    }
                     .table {
                         padding-top: 0;
                     }

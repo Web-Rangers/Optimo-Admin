@@ -1,0 +1,64 @@
+.container {
+    background-color: #f1f2f4;
+    height: calc(100vh - 80px);
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .pageTitle {
+        font-family: Noto Sans;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #201522;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .tableRow {
+        grid-template-columns: 30% 30% 30% 5% 5%;
+    }
+    .tableNameCell {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 14px;
+        .profilePhoto {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    
+    .imageCell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .tableBlockCell {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .tableEditCell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .editBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            cursor: pointer;
+            div {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

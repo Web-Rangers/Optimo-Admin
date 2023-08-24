@@ -52,6 +52,11 @@ const links = [
         name: 'Staff',
     },
     {
+        img: '/images/icons/ui/Categories.svg',
+        href: '/sportCategories',
+        name: 'Sports categories',
+    },
+    {
         img: '/images/icons/ui/User.svg',
         href: '/users',
         name: 'Users',

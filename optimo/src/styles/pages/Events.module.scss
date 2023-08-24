@@ -49,6 +49,9 @@
         .filters {
             display: flex;
             gap: 15px;
+            .multiSelect{
+                width: 250px;
+            }
         }
     }
     .eventsWrapper {

@@ -3,6 +3,7 @@ import styles from '@styles/pages/Events.module.scss';
 import Input from '@components/inputs/Input';
 import Image from 'next/image';
 import Link from 'next/link';
+import MultiSelect from '@components/inputs/MultiSelect';
 
 interface EventProps {
     sport: string;
@@ -92,8 +93,12 @@ const Event = ({
                 </div>
                 <div className={styles.teamsNames}>
                     <div className={styles.league}>{league}</div>
-                    <span className={styles.name}>{teamOne} <div className={styles.score}>1</div></span>
-                    <span className={styles.boldName}>{teamTwo} <div className={styles.score}>2</div></span>
+                    <span className={styles.name}>
+                        {teamOne} <div className={styles.score}>1</div>
+                    </span>
+                    <span className={styles.boldName}>
+                        {teamTwo} <div className={styles.score}>2</div>
+                    </span>
                 </div>
                 <div className={styles.footer}>
                     <span className={styles.date}>{date}</span>
@@ -112,7 +117,32 @@ const Events: NextPage = () => {
                     Events
                     <div className={styles.filters}>
                         <Input placeholder="All sports" />
-                        <Input placeholder="All countires" />
+                        <MultiSelect
+                        className={styles.multiSelect}
+                            items={[
+                                {
+                                    title: 'Canada',
+                                    value: 'ca',
+                                },
+                                {
+                                    title: 'Germany',
+                                    value: 'de',
+                                },
+                                {
+                                    title: 'United Kingdom',
+                                    value: 'gb',
+                                },
+                                {
+                                    title: 'Brazil',
+                                    value: 'br',
+                                },
+                                {
+                                    title: 'Spain',
+                                    value: 'es',
+                                },
+                            ]}
+                            onSelect={() => 0}
+                        />
                     </div>
                 </div>
                 <div className={styles.eventsWrapper}>

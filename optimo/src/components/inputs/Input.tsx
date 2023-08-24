@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from '@styles/components/inputs/Input.module.scss';
 import { ReactSVG } from 'react-svg';
+import { MouseEventHandler } from 'react';
 
 interface InputProps {
     children?: React.ReactNode;
@@ -15,6 +16,7 @@ interface InputProps {
         | 'number';
     value?: string | number;
     onChange?: (value: string | number | any) => void;
+    onClick?: MouseEventHandler;
     label?: string;
     multiline?: boolean;
     placeholder?: string;
@@ -49,11 +51,15 @@ export default function Input({
     passRef,
     labelStyle,
     icon,
+    onClick,
     ...props
 }: InputProps) {
     if (type === 'text' && multiline) {
         return (
-            <div className={classNames([styles.inputContainer, className])}>
+            <div
+                className={classNames([styles.inputContainer, className])}
+                onClick={onClick}
+            >
                 {label && (
                     <span style={labelStyle} className={styles.label}>
                         {label}
@@ -76,7 +82,10 @@ export default function Input({
         );
     }
     return (
-        <div className={classNames([styles.inputContainer, className])}>
+        <div
+            className={classNames([styles.inputContainer, className])}
+            onClick={onClick}
+        >
             {label && (
                 <span style={labelStyle} className={styles.label}>
                     {label}

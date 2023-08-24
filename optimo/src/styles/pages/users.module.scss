@@ -50,6 +50,7 @@
             position: relative;
             display: flex;
             gap: 20px;
+
             .outline {
                 position: relative;
                 outline: none;
@@ -98,6 +99,7 @@
                 &.open {
                     display: block;
                 }
+                z-index: 10;
                 position: absolute;
                 right: 0;
                 top: 75px;

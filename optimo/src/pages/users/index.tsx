@@ -28,6 +28,38 @@ const data = Array.from(new Array(20).keys()).map((key) => {
         detailed: 'asdasdasd',
         block: key % 4 === 0 ? true : false,
         edit: '',
+        expand: () => {
+            return (
+                <div className={styles.expanColumnWrapper}>
+                    <div className={styles.column}>
+                        <div className={styles.grayText}>
+                            Growth in the number of subscribers
+                        </div>
+                        <div className={styles.blackText}>123</div>
+                        <div className={styles.grayText}>
+                            Number of following (month)
+                        </div>
+                        <div className={styles.blackText}>26</div>
+                    </div>
+                    <div className={styles.column}>
+                        <div className={styles.grayText}>
+                            Number of paid subscriptions (month)
+                        </div>
+                        <div className={styles.blackText}>12</div>
+                        <div className={styles.grayText}>
+                            Number of free subscriptions (month)
+                        </div>
+                        <div className={styles.blackText}>45</div>
+                    </div>
+                    <div className={styles.column}>
+                        <div className={styles.grayText}>
+                            Profit from subscribers (month)
+                        </div>
+                        <div className={styles.blackText}>12</div>
+                    </div>
+                </div>
+            );
+        },
     };
 });
 
@@ -41,11 +73,22 @@ const Users: NextPage = () => {
             key: 'profile',
             title: 'Name',
             dataIndex: 'profile',
-            render: (profile: StuffProfile) => {
+            render: (
+                profile: StuffProfile,
+                key: any,
+                isEdit: boolean,
+                setIsEdit: (isEdit: boolean) => void,
+                isExpand: boolean,
+                setIsExpand: (isExpand: boolean) => void
+            ) => {
                 return (
-                    <Link href={'/users/userPage'}>
-                        <span className={styles.tableNameCell}>
-                            <ReactSVG src="/images/icons/ui/chevronRight.svg" />
+                    <span className={styles.tableNameCell}>
+                        <ReactSVG
+                            className={styles.expand}
+                            src="/images/icons/ui/chevronRight.svg"
+                            onClick={() => setIsExpand(!isExpand)}
+                        />
+                        <Link href={'/users/userPage'}>
                             <Image
                                 className={styles.profilePhoto}
                                 src={profile.photo}
@@ -53,6 +96,8 @@ const Users: NextPage = () => {
                                 width={45}
                                 height={45}
                             />
+                        </Link>
+                        <Link href={'/users/userPage'}>
                             <div className={styles.col}>
                                 <span className={styles.name}>
                                     {profile.name}
@@ -61,8 +106,8 @@ const Users: NextPage = () => {
                                     {profile.mail}
                                 </span>
                             </div>
-                        </span>
-                    </Link>
+                        </Link>
+                    </span>
                 );
             },
         },
@@ -253,6 +298,7 @@ const Users: NextPage = () => {
                     pagination={{
                         pageSize: 7,
                     }}
+                    expandable
                 />
             </div>
         </>

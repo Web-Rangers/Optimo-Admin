@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useState, useEffect } from 'react';
 import styles from '@styles/components/ui/Table.module.scss';
 import { ReactSVG } from 'react-svg';
@@ -10,7 +14,14 @@ interface ColumnDefinition {
     dataIndex: any;
     headerStyle?: React.CSSProperties;
     cellStyle?: React.CSSProperties;
-    render?: (record: any, key: any, isEdit?:any, setIsEdit?:(isEdit:boolean)=>void) => React.ReactNode;
+    render?: (
+        record: any,
+        key: any,
+        isEdit: any,
+        setIsEdit: (isEdit: boolean) => void,
+        isExpand: boolean,
+        setIsExpand: (isExpand: boolean) => void
+    ) => React.ReactNode;
 }
 
 interface Pagination {
@@ -30,7 +41,12 @@ interface TableProps {
     detailedUrl?: string;
     querys?: string;
     certificate?: string;
-    linkable?: boolean;
+    expandable?: boolean;
+}
+
+interface Option {
+    value: number;
+    label: number;
 }
 
 export default function Table({
@@ -42,31 +58,16 @@ export default function Table({
     headerClassName,
     bodyClassName,
     className,
+    expandable = false,
 }: TableProps) {
     const [currentPage, setCurrentPage] = useState(1);
-    const [diplayedData, setDisplayedData] = useState([]);
-    const [options, setOptions] = useState([]);
-    const [selectedOption, setSelectedOption] = useState(null);
-
-    const getStartPage = () => {
-        return (currentPage - 1) * (pagination?.pageSize || 10) + 1;
-    };
-
-    const getEndPage = () => {
-        return Math.min(
-            currentPage * (pagination?.pageSize || 10),
-            data.length
-        );
-    };
-
-    const selectPage = (selectedOption) => {
-        setCurrentPage(selectedOption.value);
-        setSelectedOption(selectedOption);
-    };
+    const [diplayedData, setDisplayedData] = useState<any[]>([]);
+    const [options, setOptions] = useState<Option[]>([]);
+    const [selectedOption, setSelectedOption] = useState<Option>();
 
     useEffect(() => {
         if (!pagination) return setDisplayedData(data);
-        setSelectedOption(options[currentPage - 1]);
+        setSelectedOption(options[currentPage - 1] as Option);
         setOptions(
             Array.from(
                 Array(
@@ -141,6 +142,7 @@ export default function Table({
                                 key={`table-row-${index}`}
                                 rowClassName={rowClassName}
                                 cellClassName={cellClassName}
+                                expandable={expandable}
                             />
                         )
                     );
@@ -153,8 +155,10 @@ export default function Table({
                         <div className={styles.paginationButtons}>
                             <ReactSVG
                                 src="/images/icons/ui/Prev.svg"
-                                className={`${styles.paginationBtn} ${
-                                    currentPage === 1 ? styles.disable : ''
+                                className={`${styles.paginationBtn as string} ${
+                                    currentPage === 1
+                                        ? (styles.disable as string)
+                                        : ''
                                 }`}
                                 onClick={() => {
                                     setCurrentPage((origin) => origin - 1);
@@ -184,9 +188,9 @@ export default function Table({
                             })}
                             <ReactSVG
                                 src="/images/icons/ui/Next.svg"
-                                className={`${styles.paginationBtn} ${
+                                className={`${styles.paginationBtn as string} ${
                                     currentPage === options.length
-                                        ? styles.disable
+                                        ? (styles.disable as string)
                                         : ''
                                 }`}
                                 onClick={() => {
@@ -206,6 +210,7 @@ interface TableRowProps {
     record: any;
     rowClassName?: string;
     cellClassName?: string;
+    expandable?: boolean;
 }
 
 const TableRow = ({
@@ -213,8 +218,10 @@ const TableRow = ({
     columnsDefinition,
     rowClassName,
     cellClassName,
+    expandable,
 }: TableRowProps) => {
     const [isEdit, setIsEdit] = useState(false);
+    const [isExpand, setIsExpand] = useState(false);
     return (
         <div
             className={classNames(
@@ -226,19 +233,23 @@ const TableRow = ({
             {columnsDefinition.map(
                 ({ dataIndex, render, cellStyle }, index) => {
                     if (render) {
+                        const newLocal = dataIndex;
                         return render(
-                            record[dataIndex],
+                            record[newLocal],
                             `data-${record.key}-${index}`,
                             isEdit,
-                            setIsEdit
+                            setIsEdit,
+                            isExpand,
+                            setIsExpand
                         );
                     }
                     return (
                         <>
                             <div
-                                className={`${styles.tableCell} ${styles.tableCellTemplate} ${cellClassName}`}
-                                key={`data-${record.key}-${index}`}
-                                style={cellStyle ? cellStyle : null}
+                                className={`${styles.tableCell as string} ${
+                                    styles.tableCellTemplate as string
+                                } ${cellClassName as string}`}
+                                style={cellStyle ? cellStyle : undefined}
                             >
                                 {record[dataIndex]}
                             </div>
@@ -246,6 +257,18 @@ const TableRow = ({
                     );
                 }
             )}
+            {expandable ? (
+                <div
+                    className={classNames(styles.expandBlock, {
+                        [`${styles.open}`]: isExpand,
+                    })}
+                    style={{
+                        gridColumn: `span ${columnsDefinition.length}`
+                    }}
+                >
+                    {(record['expand'] as () => JSX.Element)()}
+                </div>
+            ) : null}
         </div>
     );
 };

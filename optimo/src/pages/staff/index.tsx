@@ -136,7 +136,11 @@ const Staff: NextPage = () => {
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
                     Staff
-                    <button className={styles.fillButton}>Add new staff</button>
+                    <Link href={'/staff/add'}>
+                        <button className={styles.fillButton}>
+                            Add new staff
+                        </button>
+                    </Link>
                 </div>
                 <Table
                     columns={columns}

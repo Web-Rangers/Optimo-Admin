@@ -234,6 +234,15 @@
             align-items: center;
             height: 100%;
             gap: 15px;
+            .expand {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+            }
             .col {
                 display: flex;
                 flex-direction: column;
@@ -285,5 +294,35 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+.expanColumnWrapper {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 15px;
+    .column {
+        flex: 1 0 33%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .grayText {
+            margin-top: 10px;
+            color: #898b94;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .blackText {
+            color: #201522;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
     }
 }

@@ -25,7 +25,7 @@
             .selectedItem {
                 padding: 0;
                 gap: 7px;
-                color: #7F3FFC;
+                color: #7f3ffc;
             }
         }
     }
@@ -70,24 +70,30 @@
             height: 0;
             overflow: auto;
             gap: 4px;
-            background-color: #fff;
-            border-radius: 4px;
-            min-width: 100%;
+            border-radius: 8px;
+            background: #fff;
+            min-width: 200px;
             transition: all 0.4s ease-out;
             overflow-x: hidden;
+            &::-webkit-scrollbar{
+                display: none;
+            }
             &.open {
+                border: 1px solid #cfd1d5;
+                box-shadow: 0px 1px 15px 0px rgba(113, 105, 114, 0.09);
                 height: 212px;
             }
             .selectItem {
-                flex: 0 0 50px;
+                min-height: 30px;
                 width: 100%;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
-                padding: 16px;
+                white-space: nowrap;
+                padding: 20px;
                 &:hover {
-                    background-color: #ddd;
+                    background-color: #7f3ffc33;
                 }
             }
         }

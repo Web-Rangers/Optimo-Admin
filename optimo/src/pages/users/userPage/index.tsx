@@ -30,7 +30,7 @@ const data = Array.from(new Array(5).keys()).map((key) => {
 
 const subData = Array.from(new Array(5).keys()).map((key) => {
     return {
-        id: 3066+key,
+        id: 3066 + key,
         nickname: 'Venture One - 9292',
         payDate: '06.06.2022',
         amount: '$11 400',
@@ -203,6 +203,10 @@ const UserPage: NextPage = () => {
                                     Subscribers
                                 </span>
                             </Tab>
+                            <Tab currentValue={tab} value={3}>
+                                <ReactSVG src="/images/icons/ui/TicketPrice.svg" />
+                                <span className={styles.tabTitle}>Tips</span>
+                            </Tab>
                         </div>
                         <div className={styles.planeContainer}>
                             <Plane currentValue={tab} value={0}>
@@ -214,23 +218,31 @@ const UserPage: NextPage = () => {
                                             title=""
                                             items={[
                                                 {
-                                                    value: 'day',
-                                                    title: 'day',
+                                                    value: 'w',
+                                                    title: 'Week',
                                                 },
                                                 {
-                                                    value: 'week',
-                                                    title: 'week',
+                                                    value: 'm',
+                                                    title: 'Month',
                                                 },
                                                 {
-                                                    value: 'month',
-                                                    title: 'month',
+                                                    value: '3m',
+                                                    title: '3 month',
                                                 },
                                                 {
-                                                    value: 'year',
-                                                    title: 'year',
+                                                    value: '6m',
+                                                    title: '6 month',
+                                                },
+                                                {
+                                                    value: 'y',
+                                                    title: 'Year',
+                                                },
+                                                {
+                                                    value: 'all',
+                                                    title: 'All time',
                                                 },
                                             ]}
-                                            defaultValue="week"
+                                            defaultValue="w"
                                             onSelect={() => 0}
                                             variant="text"
                                         />
@@ -310,6 +322,279 @@ const UserPage: NextPage = () => {
                                     rowClassName={styles.tableSubRow}
                                     className={styles.table}
                                 />
+                            </Plane>
+                            <Plane currentValue={tab} value={3}>
+                                <div className={styles.tabTitle}>Tips</div>
+                                <div
+                                    className={`${styles.block as string} ${
+                                        styles.smallPadding as string
+                                    }`}
+                                >
+                                    <div className={styles.tipHeader}>
+                                        <div className={styles.profile}>
+                                            <Image
+                                                alt="profile-image"
+                                                src="/images/users/photo1.png"
+                                                width={40}
+                                                height={40}
+                                            />
+                                            <div className={styles.column}>
+                                                <div className={styles.name}>
+                                                    Emilio
+                                                </div>
+                                                <div className={styles.tipType}>
+                                                    Free tip
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={styles.tipStatus}>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="8"
+                                                height="8"
+                                                viewBox="0 0 8 8"
+                                                fill="none"
+                                            >
+                                                <circle
+                                                    cx="4"
+                                                    cy="4"
+                                                    r="3"
+                                                    fill="#00B247"
+                                                />
+                                            </svg>
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div className={styles.matchInfo}>
+                                        <div className={styles.teamInfo}>
+                                            <div className={styles.teamIcons}>
+                                                <Image
+                                                    className={styles.teamIcon}
+                                                    src={
+                                                        '/images/teams/team1.png'
+                                                    }
+                                                    width={40}
+                                                    height={40}
+                                                    alt="football ball"
+                                                />
+                                                <Image
+                                                    className={styles.teamIcon}
+                                                    src={
+                                                        '/images/teams/team2.png'
+                                                    }
+                                                    width={40}
+                                                    height={40}
+                                                    alt="football ball"
+                                                />
+                                            </div>
+                                            <div className={styles.column}>
+                                                <div
+                                                    className={styles.grayText}
+                                                >
+                                                    29.02.2022 ∙ LaLegaue
+                                                </div>
+                                                <div
+                                                    className={styles.teamNames}
+                                                >
+                                                    Team Name 1 - Team Name 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <Image
+                                            src={
+                                                '/images/icons/sports/football.png'
+                                            }
+                                            width={24}
+                                            height={24}
+                                            alt="football ball"
+                                        />
+                                    </div>
+                                    <div className={styles.matchResults}>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                Name
+                                            </div>
+                                            <div className={styles.value}>
+                                                Victory Team 1
+                                            </div>
+                                        </div>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                KEF
+                                            </div>
+                                            <div className={styles.value}>
+                                                2.92
+                                            </div>
+                                        </div>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                Result
+                                            </div>
+                                            <div className={styles.value}>
+                                                5 : 1
+                                            </div>
+                                        </div>
+                                        <div className={styles.bookmaker}>
+                                            <Image
+                                                src={
+                                                    '/images/icons/ui/testLogo.png'
+                                                }
+                                                width={70}
+                                                height={25}
+                                                alt="bookmaker logo"
+                                            />
+                                        </div>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                Amount
+                                            </div>
+                                            <div className={styles.value}>
+                                                <Image
+                                                    src="/images/icons/ui/coin.png"
+                                                    alt="coin"
+                                                    width={22}
+                                                    height={22}
+                                                />
+                                                179.4
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    className={`${styles.block as string} ${
+                                        styles.smallPadding as string
+                                    }`}
+                                >
+                                    <div className={styles.tipHeader}>
+                                        <div className={styles.profile}>
+                                            <Image
+                                                alt="profile-image"
+                                                src="/images/users/photo1.png"
+                                                width={40}
+                                                height={40}
+                                            />
+                                            <div className={styles.column}>
+                                                <div className={styles.name}>
+                                                    Emilio
+                                                </div>
+                                                <div className={styles.tipType}>
+                                                    Free tip
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={styles.tipStatus}>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="8"
+                                                height="8"
+                                                viewBox="0 0 8 8"
+                                                fill="none"
+                                            >
+                                                <circle
+                                                    cx="4"
+                                                    cy="4"
+                                                    r="3"
+                                                    fill="#00B247"
+                                                />
+                                            </svg>
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div className={styles.matchInfo}>
+                                        <div className={styles.teamInfo}>
+                                            <div className={styles.teamIcons}>
+                                                <Image
+                                                    className={styles.teamIcon}
+                                                    src={
+                                                        '/images/teams/team1.png'
+                                                    }
+                                                    width={40}
+                                                    height={40}
+                                                    alt="football ball"
+                                                />
+                                                <Image
+                                                    className={styles.teamIcon}
+                                                    src={
+                                                        '/images/teams/team2.png'
+                                                    }
+                                                    width={40}
+                                                    height={40}
+                                                    alt="football ball"
+                                                />
+                                            </div>
+                                            <div className={styles.column}>
+                                                <div
+                                                    className={styles.grayText}
+                                                >
+                                                    29.02.2022 ∙ LaLegaue
+                                                </div>
+                                                <div
+                                                    className={styles.teamNames}
+                                                >
+                                                    Team Name 1 - Team Name 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <Image
+                                            src={
+                                                '/images/icons/sports/football.png'
+                                            }
+                                            width={24}
+                                            height={24}
+                                            alt="football ball"
+                                        />
+                                    </div>
+                                    <div className={styles.matchResults}>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                Name
+                                            </div>
+                                            <div className={styles.value}>
+                                                Victory Team 1
+                                            </div>
+                                        </div>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                KEF
+                                            </div>
+                                            <div className={styles.value}>
+                                                2.92
+                                            </div>
+                                        </div>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                Result
+                                            </div>
+                                            <div className={styles.value}>
+                                                5 : 1
+                                            </div>
+                                        </div>
+                                        <div className={styles.bookmaker}>
+                                            <Image
+                                                src={
+                                                    '/images/icons/ui/testLogo.png'
+                                                }
+                                                width={70}
+                                                height={25}
+                                                alt="bookmaker logo"
+                                            />
+                                        </div>
+                                        <div className={styles.column}>
+                                            <div className={styles.title}>
+                                                Amount
+                                            </div>
+                                            <div className={styles.value}>
+                                                <Image
+                                                    src="/images/icons/ui/coin.png"
+                                                    alt="coin"
+                                                    width={22}
+                                                    height={22}
+                                                />
+                                                179.4
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </Plane>
                         </div>
                     </div>

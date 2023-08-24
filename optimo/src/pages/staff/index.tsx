@@ -10,6 +10,7 @@ import Input from '@components/inputs/Input';
 import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
 import ConfirmModal from '@components/modals/ConfirmModal';
+import Badge from '@components/ui/Badge';
 
 const data = Array.from(new Array(20).keys()).map((key) => {
     return {
@@ -18,6 +19,8 @@ const data = Array.from(new Array(20).keys()).map((key) => {
         mail: 'ckctm12@gmail.com',
         nickname: 'LoremIpsum007',
         block: key % 4 === 0 ? true : false,
+        status:
+            key % 2 === 0 ? 'active' : key % 3 === 0 ? 'inactive' : 'blocked',
         edit: '',
     };
 });
@@ -44,6 +47,39 @@ const Staff: NextPage = () => {
             key: 'role',
             title: 'Role',
             dataIndex: 'role',
+        },
+        {
+            key: 'status',
+            title: 'Status',
+            dataIndex: 'status',
+            headerStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            render: (status: string) => {
+                return (
+                    <div className={styles.badgeCell}>
+                        {status === 'active' ? <Badge text="Active" /> : null}
+                        {status === 'inactive' ? (
+                            <Badge
+                                dotColor="#667085"
+                                backColor="#F2F4F7"
+                                textColor="#344054"
+                                text="Inactive"
+                            />
+                        ) : null}
+                        {status === 'blocked' ? (
+                            <Badge
+                                dotColor="#DF371F"
+                                backColor="#FDF2FA"
+                                textColor="#C22E18"
+                                text="Blocked"
+                            />
+                        ) : null}
+                    </div>
+                );
+            },
         },
         {
             key: 'edit',
@@ -92,9 +128,9 @@ const Staff: NextPage = () => {
                 <ConfirmModal
                     title="Deletion confirmation"
                     text="Are you sure you want to delete this employee?"
-                    onBackClick={()=>setIsOpen(false)}
-                    cancelText='No, Keep it'
-                    acceptText='Yes, Delete'
+                    onBackClick={() => setIsOpen(false)}
+                    cancelText="No, Keep it"
+                    acceptText="Yes, Delete"
                 />
             ) : null}
             <div className={styles.container}>

@@ -1,0 +1,15 @@
+.badge {
+    width: min-content;
+    border-radius: 16px;
+    background: #ecfdf3;
+    padding: 2px 6px;
+    text-align: center;
+    font-family: Noto Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}

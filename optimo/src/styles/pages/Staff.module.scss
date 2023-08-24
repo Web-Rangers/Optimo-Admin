@@ -145,7 +145,7 @@
         }
     }
     .tableRow {
-        grid-template-columns: 25% 25% 23% 17% 5% 5%;
+        grid-template-columns: 23% 23% 20% 14% 10% 5% 5%;
     }
     .userTableRow {
         grid-template-columns: 29% 30% 20% 13% 8%;
@@ -161,6 +161,12 @@
         border-radius: 50%;
         object-fit: cover;
     }
+}
+
+.badgeCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tableBlockCell {

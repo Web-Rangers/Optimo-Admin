@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import Table from '@components/ui/Table';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
-import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import Link from 'next/link';
 

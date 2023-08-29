@@ -1,14 +1,11 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/Tipster.module.scss';
 import tableStyles from '@styles/components/ui/Table.module.scss';
-import DatePicker from '@components/inputs/DatePicker';
 import { useState } from 'react';
 import { ReactSVG } from 'react-svg';
-import classNames from 'classnames';
 import Image from 'next/image';
 import Table from '@components/ui/Table';
 import Modal from '@components/modals/Modal';
-import Link from 'next/link';
 import Input from '@components/inputs/Input';
 import TextEditModal from '@components/modals/TextEditModal';
 

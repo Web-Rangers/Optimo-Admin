@@ -89,11 +89,13 @@ export default function Table({
             className={styles.headerBack}
             onScroll={(event) => {
                 const target = event.target as HTMLElement;
-                const header = target.parentNode.querySelector(
+                if (!target) return;
+                const header = target.parentNode?.querySelector(
                     `.${styles.tableBody}`
                 );
-                if (target.scrollLeft !== header.scrollLeft)
-                    header.scrollTo(target.scrollLeft, 0);
+                if (header)
+                    if (target.scrollLeft !== header.scrollLeft)
+                        header.scrollTo(target.scrollLeft, 0);
             }}
         >
             <div
@@ -108,7 +110,7 @@ export default function Table({
                     return (
                         <div
                             className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
-                            style={headerStyle ? headerStyle : null}
+                            style={headerStyle ? headerStyle : undefined}
                             key={key}
                         >
                             {title}
@@ -263,7 +265,7 @@ const TableRow = ({
                         [`${styles.open}`]: isExpand,
                     })}
                     style={{
-                        gridColumn: `span ${columnsDefinition.length}`
+                        gridColumn: `span ${columnsDefinition.length}`,
                     }}
                 >
                     {(record['expand'] as () => JSX.Element)()}

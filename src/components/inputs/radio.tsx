@@ -8,7 +8,7 @@ interface RadioProps {
     checked?: boolean;
     defaultChecked?: boolean;
     name?: string;
-    onChange?: (checked: boolean) => void;
+    onChange?: (checked: string) => void;
     id?: string;
     value?: string;
 }
@@ -20,7 +20,7 @@ export default function Radio({
     defaultChecked,
     name,
     value = label || "",
-    onChange = null
+    onChange = undefined
 }: RadioProps) {
     const [isChecked, setIsChecked] = useState(defaultChecked);
     return (

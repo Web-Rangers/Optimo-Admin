@@ -1,7 +1,8 @@
-import classNames from 'classnames';
+
 import styles from '@styles/components/inputs/Input.module.scss';
 import { ReactSVG } from 'react-svg';
-import { MouseEventHandler } from 'react';
+import type { MouseEventHandler } from 'react';
+import classNames from 'classnames';
 
 interface InputProps {
     children?: React.ReactNode;
@@ -23,9 +24,9 @@ interface InputProps {
     style?: React.CSSProperties;
     disabled?: boolean;
     maxLength?: number;
-    id?: number | any;
-    min?: string | any;
-    passRef?: string | any;
+    id?: number;
+    min?: string;
+    passRef?: string;
     name?: string;
     defaultValue?: string | number;
     labelStyle?: React.CSSProperties;
@@ -33,7 +34,6 @@ interface InputProps {
 }
 
 export default function Input({
-    children,
     className,
     label,
     value,
@@ -52,7 +52,6 @@ export default function Input({
     labelStyle,
     icon,
     onClick,
-    ...props
 }: InputProps) {
     if (type === 'text' && multiline) {
         return (
@@ -104,7 +103,7 @@ export default function Input({
                         onChange?.call(null, event.target.value)
                     }
                     maxLength={maxLength}
-                    id={id}
+                    id={id?.toString()}
                     ref={passRef}
                     min={min}
                 />

@@ -62,7 +62,6 @@ function LangTab({ onClick, code, selected = false }: LangTabProps) {
     );
 }
 
-function Input() {}
 
 type Langs = 'eng' | 'ger' | 'rus' | 'spa';
 

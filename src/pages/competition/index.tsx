@@ -20,7 +20,7 @@ const Comp: NextPage = () => {
                     <div className={styles.tabs}>
                         <div
                             className={classNames(styles.tabBtn, {
-                                [`${styles.currentTab}`]: tab === 1,
+                                [`${styles.currentTab as string}`]: tab === 1,
                             })}
                             onClick={() => setTab(1)}
                         >
@@ -28,7 +28,7 @@ const Comp: NextPage = () => {
                         </div>
                         <div
                             className={classNames(styles.tabBtn, {
-                                [`${styles.currentTab}`]: tab === 2,
+                                [`${styles.currentTab as string}`]: tab === 2,
                             })}
                             onClick={() => setTab(2)}
                         >
@@ -36,7 +36,7 @@ const Comp: NextPage = () => {
                         </div>
                         <div
                             className={classNames(styles.tabBtn, {
-                                [`${styles.currentTab}`]: tab === 3,
+                                [`${styles.currentTab as string}`]: tab === 3,
                             })}
                             onClick={() => setTab(3)}
                         >
@@ -351,7 +351,7 @@ const Comp: NextPage = () => {
                                             className={classNames(
                                                 styles.compBlock,
                                                 {
-                                                    [`${styles.index}`]:
+                                                    [`${styles.index as string}`]:
                                                         key === 2,
                                                 }
                                             )}

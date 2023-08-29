@@ -1,11 +1,7 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/Staff.module.scss';
 import { useState } from 'react';
-import classNames from 'classnames';
-import Table from '@components/ui/Table';
 import Image from 'next/image';
-import { ReactSVG } from 'react-svg';
-import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import Radio from '@components/inputs/radio';
 import CheckBox from '@components/ui/CheckBox';

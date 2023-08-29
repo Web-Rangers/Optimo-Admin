@@ -1,13 +1,8 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/Staff.module.scss';
 import { useState } from 'react';
-import classNames from 'classnames';
 import Table from '@components/ui/Table';
-import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
-import Modal from '@components/modals/Modal';
-import Input from '@components/inputs/Input';
-import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
 import ConfirmModal from '@components/modals/ConfirmModal';
 import Badge from '@components/ui/Badge';
@@ -105,7 +100,7 @@ const Staff: NextPage = () => {
             key: 'delete',
             title: '',
             dataIndex: 'delete',
-            render: (block: boolean) => {
+            render: () => {
                 return (
                     <span className={styles.tableEditCell}>
                         <ReactSVG

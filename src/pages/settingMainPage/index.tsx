@@ -1,12 +1,10 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/settings.module.scss';
-import DatePicker from '@components/inputs/DatePicker';
 import tableStyles from '@styles/components/ui/Table.module.scss';
 import { useState } from 'react';
 import Table from '@components/ui/Table';
 import { ReactSVG } from 'react-svg';
 import Image from 'next/image';
-import Input from '@components/inputs/Input';
 import Modal from '@components/modals/Modal';
 import Select from '@components/inputs/Select';
 
@@ -21,7 +19,7 @@ const data = Array.from(new Array(5).keys()).map((key) => {
     };
 });
 
-const sports = Array.from(new Array(4).keys()).map((key) => {
+const sports = Array.from(new Array(4).keys()).map(() => {
     return {
         id: '1234',
         name: 'Football',

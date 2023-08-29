@@ -74,7 +74,7 @@ function MenuLink({ img, href, name, router }: MenuLinkProps) {
         <Link href={href}>
             <div
                 className={classNames(styles.navItem, {
-                    [`${styles.navCurrent}`]: active,
+                    [`${styles.navCurrent as string}`]: active,
                 })}
             >
                 <div className={styles.navLeft}>

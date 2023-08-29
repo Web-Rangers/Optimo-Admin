@@ -7,11 +7,11 @@ import { ReactSVG } from 'react-svg';
 import Table from '@components/ui/Table';
 import Select from '@components/inputs/Select';
 
-interface StuffProfile {
-    name: string;
-    photo: string;
-    mail: string;
-}
+// interface StuffProfile {
+//     name: string;
+//     photo: string;
+//     mail: string;
+// }
 
 interface planeProps {
     value: number;
@@ -19,7 +19,7 @@ interface planeProps {
     children?: React.ReactNode;
 }
 
-const data = Array.from(new Array(5).keys()).map((key) => {
+const data = Array.from(new Array(5).keys()).map(() => {
     return {
         type: 'Deposit',
         date: '23.03.2023',
@@ -132,7 +132,7 @@ const UserPage: NextPage = () => {
         },
     ];
 
-    const [filterOpen, setFilterOpen] = useState(false);
+    // const [filterOpen, setFilterOpen] = useState(false);
 
     return (
         <>

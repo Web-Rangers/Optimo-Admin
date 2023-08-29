@@ -19,7 +19,7 @@ const Switch = ({
         <div className={styles.switch}>
             <div
                 className={classNames(styles.container, className, {
-                    [`${styles.active}`]: checked,
+                    [`${styles.active as string}`]: checked,
                 })}
                 onClick={onChange}
             >

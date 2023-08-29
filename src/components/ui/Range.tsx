@@ -5,8 +5,8 @@ import {
     useEffect,
     useRef,
     useState,
-    Dispatch,
-    SetStateAction,
+    type Dispatch,
+    type SetStateAction,
 } from 'react';
 
 export interface RangeProps {
@@ -41,9 +41,9 @@ const Range = ({
 
     function configurePositions() {
         let h1pos = (handle1 - minValue) / (maxValue - minValue);
-        h1pos = h1pos === NaN ? 0 : h1pos;
+        h1pos = Number.isNaN(h1pos) ? 0 : h1pos;
         let h2pos = (handle2 - minValue) / (maxValue - minValue);
-        h2pos = h2pos === NaN ? 0 : h2pos;
+        h2pos = Number.isNaN(h2pos) ? 0 : h2pos;
         const left = h1pos < h2pos ? h1pos : h2pos;
         const right = h1pos > h2pos ? h1pos : h2pos;
         const h1Style: CSSProperties = {

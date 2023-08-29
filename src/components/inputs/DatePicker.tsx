@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from '@styles/components/Inputs/Inputs.module.scss';
+import styles from '@styles/components/inputs/Inputs.module.scss';
 import { ReactSVG } from 'react-svg';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';

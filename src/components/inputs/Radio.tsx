@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useState } from 'react';
-import styles from '@styles/components/Inputs/Radio.module.scss';
+import styles from '@styles/components/inputs/Radio.module.scss';
 
 interface RadioProps {
     className?: string;

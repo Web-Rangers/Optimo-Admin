@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import styles from '@styles/components/Modals/TextEditModal.module.scss';
+import styles from '@styles/components/ьodals/TextEditModal.module.scss';
 import Modal from './Modal';
 import { ReactSVG } from 'react-svg';
-import { ChangeEventHandler, useEffect, useState } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 
 interface Text {
     eng?: string;

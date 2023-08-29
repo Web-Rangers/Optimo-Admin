@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from '@styles/components/Modals/ConfirmModal.module.scss';
+import styles from '@styles/components/modals/ConfirmModal.module.scss';
 import Modal from './Modal';
 import { ReactSVG } from 'react-svg';
 

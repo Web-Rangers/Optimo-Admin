@@ -3,7 +3,7 @@ import styles from '@styles/pages/TipPage.module.scss';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import Modal from '@components/modals/Modal';
-import Radio from '@components/inputs/radio';
+import Radio from '@components/inputs/Radio';
 import { boolean } from 'zod';
 import { useState } from 'react';
 

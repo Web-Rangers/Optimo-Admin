@@ -3,7 +3,7 @@ import styles from '@styles/pages/Staff.module.scss';
 import { useState } from 'react';
 import Image from 'next/image';
 import Input from '@components/inputs/Input';
-import Radio from '@components/inputs/radio';
+import Radio from '@components/inputs/Radio';
 import CheckBox from '@components/ui/CheckBox';
 import ConfirmModal from '@components/modals/ConfirmModal';
 

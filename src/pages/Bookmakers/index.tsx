@@ -1,17 +1,14 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/Bookmakers.module.scss';
-import classNames from 'classnames';
 import Table from '@components/ui/Table';
-import Link from 'next/link';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import { useState } from 'react';
 import Select from '@components/inputs/Select';
-import { title } from 'process';
 
-const data = Array.from(new Array(4).keys()).map((key) => {
+const data = Array.from(new Array(4).keys()).map(() => {
     return {
         number: '1234567',
         id: '123456',

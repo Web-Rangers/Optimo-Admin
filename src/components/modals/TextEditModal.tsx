@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from '@styles/components/ьodals/TextEditModal.module.scss';
+import styles from '@styles/components/modals/TextEditModal.module.scss';
 import Modal from './Modal';
 import { ReactSVG } from 'react-svg';
 import { ChangeEventHandler, useState } from 'react';

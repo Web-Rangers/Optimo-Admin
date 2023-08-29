@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import styles from '@styles/pages/users.module.scss';
+import styles from '@styles/pages/Users.module.scss';
 import { useState } from 'react';
 import classNames from 'classnames';
 import Table from '@components/ui/Table';

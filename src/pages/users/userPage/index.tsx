@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import styles from '@styles/pages/userPage.module.scss';
+import styles from '@styles/pages/UserPage.module.scss';
 import { useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';

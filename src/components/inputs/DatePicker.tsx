@@ -3,7 +3,6 @@ import styles from '@styles/components/Inputs/Inputs.module.scss';
 import { ReactSVG } from 'react-svg';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { Value } from 'sass';
 
 enum DayName {
     Monday = 1,
@@ -34,7 +33,7 @@ declare global {
     interface Date {
         GetFirstDayOfWeek(): Date;
         GetLastDayOfWeek(): Date;
-        GetWeekDay(weekday): Date;
+        GetWeekDay(weekday: number): Date;
     }
 }
 
@@ -54,7 +53,7 @@ Date.prototype.GetLastDayOfWeek = function () {
         )
     );
 };
-Date.prototype.GetWeekDay = function (weekday) {
+Date.prototype.GetWeekDay = function (weekday: number) {
     const date = new Date(this.getFullYear(), this.getMonth(), this.getDate());
     const day = this.getDay();
     return new Date(
@@ -102,14 +101,14 @@ function compareDateMonth(dateA: Date, dateB: Date) {
     return false;
 }
 
-function compareDate(dateA: Date, dateB: Date) {
-    if (dateA.getFullYear() >= dateB.getFullYear()) return true;
-    if (dateA.getFullYear() < dateB.getFullYear()) return false;
-    if (dateA.getMonth() >= dateB.getMonth()) return true;
-    if (dateA.getMonth() < dateB.getMonth()) return false;
-    if (dateA.getDate() >= dateB.getDate()) return true;
-    return false;
-}
+// function compareDate(dateA: Date, dateB: Date) {
+//     if (dateA.getFullYear() >= dateB.getFullYear()) return true;
+//     if (dateA.getFullYear() < dateB.getFullYear()) return false;
+//     if (dateA.getMonth() >= dateB.getMonth()) return true;
+//     if (dateA.getMonth() < dateB.getMonth()) return false;
+//     if (dateA.getDate() >= dateB.getDate()) return true;
+//     return false;
+// }
 
 interface DatePickerProps {
     className?: string;
@@ -132,7 +131,7 @@ export default function DatePicker({
 }: DatePickerProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [valueDate, setValuseDate] = useState(value ?? '');
-    const dateField = useRef<HTMLInputElement>();
+    const dateField = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         setValuseDate(value ?? '');
@@ -167,7 +166,7 @@ export default function DatePicker({
                     <Picker
                         isOpen={isOpen}
                         onClose={() => setIsOpen(false)}
-                        onChange={(start) => {
+                        onChange={(start: string) => {
                             setValuseDate(start);
                             onChange?.call(null, start);
                         }}
@@ -177,11 +176,14 @@ export default function DatePicker({
                     <RangePicker
                         isOpen={isOpen}
                         onClose={() => setIsOpen(false)}
-                        dateStartChange={(start) => {
+                        dateStartChange={(start: string) => {
                             onChange?.call(null, start);
                         }}
                         dateEndChange={(start, end) => {
-                            onChange?.call(null, `${start} - ${end}`);
+                            onChange?.call(
+                                null,
+                                `${start} - ${end}`
+                            );
                         }}
                     />
                 )}
@@ -192,19 +194,19 @@ export default function DatePicker({
 
 interface RangePickerProps {
     isOpen?: boolean;
-    dateStartChange?: (value) => void;
-    dateEndChange?: (startValue, endValue) => void;
+    dateStartChange?: (value:string) => void;
+    dateEndChange?: (startValue:string, endValue:string) => void;
     onClose?: () => void;
 }
 
 interface PickerProps {
     isOpen?: boolean;
-    onChange?: (value) => void;
+    onChange?: (value: string) => void;
     onClose?: () => void;
 }
 
 const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
-    const [days, setDays] = useState([]);
+    const [days, setDays] = useState<JSX.Element[]>([]);
     const [date, setDate] = useState(new Date());
     const [selected, setSelected] = useState<Date>();
     function configureDays() {
@@ -214,9 +216,13 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
             days.push(
                 <DayHeader
                     key={`dhp${i}`}
-                    title={DayName[i]}
+                    title={DayName[i] as string}
                     className={
-                        i === 1 ? styles.left : i === 7 ? styles.right : null
+                        i === 1
+                            ? (styles.left as string)
+                            : i === 7
+                            ? (styles.right as string)
+                            : undefined
                     }
                 />
             );
@@ -228,7 +234,7 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                 <Day
                     key={`d${i}`}
                     className={classNames({
-                        [styles.selected]:
+                        [styles.selected as string]:
                             selected &&
                             date.getFullYear() === selected.getFullYear() &&
                             date.getMonth() === selected.getMonth() &&
@@ -238,8 +244,8 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                         setSelected(
                             new Date(date.getFullYear(), date.getMonth(), i)
                         );
-                        function toJSONLocal(date) {
-                            var local = new Date(date);
+                        function toJSONLocal(date: Date) {
+                            const local = new Date(date);
                             local.setMinutes(
                                 date.getMinutes() - date.getTimezoneOffset()
                             );
@@ -250,8 +256,8 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                             date.getMonth(),
                             i
                         );
-                        onChange(toJSONLocal(dt));
-                        onClose();
+                        if (onChange) onChange(toJSONLocal(dt));
+                        if (onClose) onClose();
                     }}
                     number={i}
                     style={{
@@ -323,9 +329,9 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [date, selected]);
 
-    const blockRef = useRef<HTMLDivElement>();
+    const blockRef = useRef<HTMLDivElement>(null);
 
-    const [getClick, setGetClick] = useState(false);
+    // const [getClick, setGetClick] = useState(false);
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('click', clickNotOnBlock, {
@@ -341,18 +347,20 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                 capture: true,
             });
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
-    const clickNotOnBlock = (e) => {
-        if (!e.composedPath().includes(blockRef.current)) {
-            onClose();
-        }
+    const clickNotOnBlock = (e: MouseEvent) => {
+        if (blockRef.current)
+            if (!e.composedPath().includes(blockRef.current)) {
+                if (onClose) onClose();
+            }
     };
 
     return (
         <div
             className={classNames(styles.pickerContainer, {
-                [styles.closed]: !isOpen,
+                [styles.closed as string]: !isOpen,
             })}
             ref={blockRef}
         >
@@ -367,10 +375,11 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                         width={20}
                         height={20}
                         style={{ transform: 'rotateZ(180deg)' }}
+                        alt="chevron"
                     />
                 </div>
                 <div className={styles.date}>{`${
-                    MonthName[date.getMonth()]
+                    MonthName[date.getMonth()] as string
                 }, ${date.getFullYear()}`}</div>
                 <div
                     className={styles.moveBtn}
@@ -378,6 +387,7 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                     onClick={() => setDate(getNextMonthDate(date))}
                 >
                     <Image
+                        alt="chevron"
                         src="/images/icons/calendar/chevron.svg"
                         width={20}
                         height={20}
@@ -391,13 +401,13 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
 
 const RangePicker = ({
     isOpen,
-    onClose,
+    // onClose,
     dateStartChange,
     dateEndChange,
 }: RangePickerProps) => {
-    const [days, setDays] = useState([]);
-    const [nextDays, setNextDays] = useState([]);
-    const [date, setDate] = useState(new Date());
+    const [days, setDays] = useState<JSX.Element[]>([]);
+    const [nextDays, setNextDays] = useState<JSX.Element[]>([]);
+    const [date, setDate] = useState<Date>(new Date());
     const [nextDate, setNextDate] = useState(getNextMonthDate(date));
     const [dateStart, setDateStart] = useState<Date>();
     const [dateEnd, setDateEnd] = useState<Date>();
@@ -410,9 +420,13 @@ const RangePicker = ({
             days.push(
                 <DayHeader
                     key={`dhrp${i}`}
-                    title={DayName[i % 7]}
+                    title={DayName[i % 7] as string}
                     className={
-                        i === 0 ? styles.left : i === 6 ? styles.right : null
+                        i === 0
+                            ? (styles.left as string)
+                            : i === 6
+                            ? (styles.right as string)
+                            : undefined
                     }
                 />
             );
@@ -424,7 +438,7 @@ const RangePicker = ({
                 <Day
                     key={`d${i}`}
                     className={classNames({
-                        [styles.selected]:
+                        [styles.selected as string]:
                             (dateStart &&
                                 date.getFullYear() ===
                                     dateStart.getFullYear() &&
@@ -434,12 +448,12 @@ const RangePicker = ({
                                 date.getFullYear() === dateEnd.getFullYear() &&
                                 date.getMonth() === dateEnd.getMonth() &&
                                 dateEnd.getDate() === i),
-                        [styles.disabled]:
+                        [styles.disabled as string]:
                             target === 'end' &&
                             dateStart &&
                             new Date(date.getFullYear(), date.getMonth(), i) <
                                 dateStart,
-                        [styles.inRange]:
+                        [styles.inRange as string]:
                             dateStart &&
                             dateEnd &&
                             new Date(date.getFullYear(), date.getMonth(), i) >
@@ -450,7 +464,7 @@ const RangePicker = ({
                     onClick={() => {
                         if (target === 'start') {
                             setTarget('end');
-                            setDateEnd(null);
+                            setDateEnd(undefined);
                             const newDate = new Date(
                                 date.getFullYear(),
                                 date.getMonth(),
@@ -535,14 +549,14 @@ const RangePicker = ({
             nextDate.getMonth(),
             nextDate.getFullYear()
         );
-        const days = [];
+        const days:JSX.Element[] = [];
         for (let i = 6; i < 13; i++) {
             days.push(
                 <DayHeader
                     key={`dhrpn${i}`}
-                    title={DayName[i % 7]}
+                    title={DayName[i % 7] as string}
                     className={
-                        i === 0 ? styles.left : i === 6 ? styles.right : null
+                        i === 0 ? styles.left as string : i === 6 ? styles.right as string : undefined
                     }
                 />
             );
@@ -558,7 +572,7 @@ const RangePicker = ({
                 <Day
                     key={`d${i}`}
                     className={classNames({
-                        [styles.selected]:
+                        [styles.selected as string]:
                             (dateStart &&
                                 nextDate.getFullYear() ===
                                     dateStart.getFullYear() &&
@@ -569,7 +583,7 @@ const RangePicker = ({
                                     dateEnd.getFullYear() &&
                                 nextDate.getMonth() === dateEnd.getMonth() &&
                                 dateEnd.getDate() === i),
-                        [styles.disabled]:
+                        [styles.disabled as string]:
                             target === 'end' &&
                             dateStart &&
                             new Date(
@@ -577,7 +591,7 @@ const RangePicker = ({
                                 nextDate.getMonth(),
                                 i
                             ) < dateStart,
-                        [styles.inRange]:
+                        [styles.inRange as string]:
                             dateStart &&
                             dateEnd &&
                             new Date(
@@ -594,7 +608,7 @@ const RangePicker = ({
                     onClick={() => {
                         if (target === 'start') {
                             setTarget('end');
-                            setDateEnd(null);
+                            setDateEnd(undefined);
                             setDateStart(
                                 new Date(
                                     nextDate.getFullYear(),
@@ -701,8 +715,8 @@ const RangePicker = ({
     }, [dateStart]);
 
     useEffect(() => {
+        if (!dateStart) return;
         if (!dateEnd) {
-            if (!dateStart) return;
             dateEndChange?.call(null, dateStart?.toLocaleDateString(), '');
             return;
         }
@@ -717,7 +731,7 @@ const RangePicker = ({
     return (
         <div
             className={classNames(styles.rangePickerContainer, {
-                [styles.closed]: !isOpen,
+                [styles.closed as string]: !isOpen,
             })}
         >
             <div className={styles.pickerSide}>
@@ -732,11 +746,11 @@ const RangePicker = ({
                         />
                     </div>
                     <div className={styles.date}>{`${
-                        MonthName[date.getMonth()]
+                        MonthName[date.getMonth()] as string
                     }, ${date.getFullYear()}`}</div>
                     <div
                         className={classNames(styles.moveBtn, {
-                            [styles.deactive]: !compareDateMonth(
+                            [styles.deactive as string]: !compareDateMonth(
                                 nextDate,
                                 getNextMonthDate(date)
                             ),
@@ -755,7 +769,7 @@ const RangePicker = ({
                 <div className={styles.pickerHeader}>
                     <div
                         className={classNames(styles.moveBtn, {
-                            [styles.deactive]: !compareDateMonth(
+                            [styles.deactive as string]: !compareDateMonth(
                                 getPrevMonthDate(nextDate),
                                 date
                             ),
@@ -768,7 +782,7 @@ const RangePicker = ({
                         />
                     </div>
                     <div className={styles.date}>{`${
-                        MonthName[nextDate.getMonth()]
+                        MonthName[nextDate.getMonth()] as string
                     }, ${nextDate.getFullYear()}`}</div>
                     <div
                         className={styles.moveBtn}

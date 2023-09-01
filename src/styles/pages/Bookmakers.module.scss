@@ -88,18 +88,19 @@
             display: flex;
             align-items: center;
             gap: 40px;
-            .bookmaker{
-                border: 1px solid #CFD1D5;
+            .bookmaker {
+                border: 1px solid #cfd1d5;
+                border-radius: 8px;
                 padding: 15px;
                 display: flex;
                 flex-direction: row;
                 gap: 10px;
                 align-items: center;
                 flex: 1 1 auto;
-                .name{
+                .name {
                     flex: 1 1 auto;
                 }
-                .editBtn{
+                .editBtn {
                     padding: 0 10px;
                     align-items: center;
                     justify-content: center;
@@ -115,27 +116,27 @@
         }
         .tableRow {
             grid-template-columns: 25% 25% 30% 15% 5%;
-            border: 1px solid #CFD1D5;
-            &.tableHeader{
-                border:none;
+            border: 1px solid #cfd1d5;
+            &.tableHeader {
+                border: none;
             }
         }
-        .tableEditCell{
+        .tableEditCell {
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
         }
-        
     }
 }
 
-.modal{
+div.modal {
     max-width: 730px;
     width: 50%;
+    gap: 25px;
 }
 
-.input{
+.input {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -188,9 +189,9 @@
         align-items: center;
         justify-content: center;
         padding: 30px 0;
-        border: 1px dashed #7f3ffc;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%237f3ffc' stroke-width='1.5' stroke-dasharray='15' stroke-dashoffset='1' stroke-linecap='square'/%3e%3c/svg%3e");
         border-radius: 4px;
-        .inputText{
+        .inputText {
             display: flex;
             flex-direction: row;
         }
@@ -223,7 +224,7 @@
     flex-direction: row;
     width: 100%;
     gap: 15px;
-    >div:first-child {
+    > div:first-child {
         flex: 1 0 70%;
     }
 }

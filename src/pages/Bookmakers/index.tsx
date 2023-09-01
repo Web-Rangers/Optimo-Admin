@@ -121,12 +121,16 @@ const Bookmakers: NextPage = () => {
     const [isChange, setIsChange] = useState<boolean>(false);
     return (
         <>
-            {isChange? <ChangeBookmakerModal onBackClick={()=>setIsChange(false)}/> : null}
+            {isChange ? (
+                <ChangeBookmakerModal onBackClick={() => setIsChange(false)} />
+            ) : null}
             {isEdit ? (
                 <EditBookmakerModal onBackClick={() => setIsEdit(false)} />
             ) : null}
             <div className={styles.container}>
-                <div className={styles.pageTitle}>Bookmakers</div>
+                <div className={styles.pageTitle}>
+                    Bookmakers
+                </div>
                 <div className={styles.block}>
                     <div className={styles.title}>Top 3</div>
                     <div className={styles.row}>
@@ -140,7 +144,7 @@ const Bookmakers: NextPage = () => {
                             <span className={styles.name}>1234567</span>
                             <ReactSVG
                                 className={styles.editBtn}
-                                src={'/images/icons/ui/ThinPencil.svg'}
+                                src={'/images/icons/ui/Union.svg'}
                                 onClick={() => {
                                     setIsChange(true);
                                     return;
@@ -164,7 +168,7 @@ const Bookmakers: NextPage = () => {
                             <span className={styles.name}>1234567</span>
                             <ReactSVG
                                 className={styles.editBtn}
-                                src={'/images/icons/ui/ThinPencil.svg'}
+                                src={'/images/icons/ui/Union.svg'}
                                 onClick={() => {
                                     setIsChange(true);
                                     return;
@@ -188,7 +192,7 @@ const Bookmakers: NextPage = () => {
                             <span className={styles.name}>1234567</span>
                             <ReactSVG
                                 className={styles.editBtn}
-                                src={'/images/icons/ui/ThinPencil.svg'}
+                                src={'/images/icons/ui/Union.svg'}
                                 onClick={() => {
                                     setIsChange(true);
                                     return;

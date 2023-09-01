@@ -4,6 +4,7 @@ import Input from '@components/inputs/Input';
 import Image from 'next/image';
 import Link from 'next/link';
 import MultiSelect from '@components/inputs/MultiSelect';
+import { ReactSVG } from 'react-svg';
 
 interface EventProps {
     sport: string;
@@ -116,9 +117,47 @@ const Events: NextPage = () => {
                 <div className={styles.pageTitle}>
                     Events
                     <div className={styles.filters}>
-                        <Input placeholder="All sports" />
+                        <div className={styles.moreFiltersBtn}>
+                            More filters
+                            <div className={styles.counter}>
+                                1
+                            </div>
+                        </div>
                         <MultiSelect
-                        className={styles.multiSelect}
+                            placeholder="All sports"
+                            className={styles.multiSelectShort}
+                            items={[
+                                {
+                                    title: 'Football',
+                                    value: '1',
+                                },
+                                {
+                                    title: 'Hockey',
+                                    value: '2',
+                                },
+                                {
+                                    title: 'Rugby',
+                                    value: '3',
+                                },
+                                {
+                                    title: 'Boxing',
+                                    value: '4',
+                                },
+                                {
+                                    title: 'Basketball',
+                                    value: '5',
+                                },
+                                {
+                                    title: 'Handball',
+                                    value: '6',
+                                },
+                            ]}
+                            onSelect={() => 0}
+                        />
+                        <MultiSelect
+                            placeholder="All countries"
+                            showChackBox
+                            className={styles.multiSelect}
                             items={[
                                 {
                                     title: 'Canada',
@@ -143,6 +182,9 @@ const Events: NextPage = () => {
                             ]}
                             onSelect={() => 0}
                         />
+                        <div className={styles.resetBtn}>
+                            <ReactSVG src="/images/icons/ui/x.svg" />
+                        </div>
                     </div>
                 </div>
                 <div className={styles.eventsWrapper}>

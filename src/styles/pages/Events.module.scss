@@ -49,8 +49,61 @@
         .filters {
             display: flex;
             gap: 15px;
-            .multiSelect{
-                width: 250px;
+            .moreFiltersBtn {
+                padding: 16px 10px;
+                cursor: pointer;
+                background-color: #fff;
+                border-radius: 8px;
+                border: 2px solid #7f3ffc;
+                color: #7f3ffc;
+                text-align: center;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                min-width: 140px;
+                position: relative;
+                .counter {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    top: -10px;
+                    right: -10px;
+                    border-radius: 50%;
+                    background-color: #7f3ffc;
+                    color: #fff;
+                    text-align: center;
+                    font-family: Noto Sans;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    border: 2px solid #fff;
+                }
+            }
+            .multiSelectShort {
+                width: 230px;
+            }
+            .multiSelect {
+                width: 280px;
+            }
+            .resetBtn {
+                width: 56px;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                background: #7f3ffc;
+                padding: 10px;
+                div {
+                    display: flex;
+                    align-items: center;
+                    path {
+                        stroke: #fff;
+                    }
+                }
             }
         }
     }
@@ -135,7 +188,20 @@
                     font-size: 18px;
                     font-style: normal;
                     font-weight: 600;
-                    line-height: 140%; 
+                    line-height: 140%;
+                    position: relative;
+                    ::after {
+                        content: ' ';
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        top: 5px;
+                        right: -25px;
+                        border: 8px solid transparent;
+                        border-top: 6px solid transparent;
+                        border-bottom: 6px solid transparent;
+                        border-right: 8px solid #000;
+                    }
                 }
             }
             .footer {

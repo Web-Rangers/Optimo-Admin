@@ -14,6 +14,8 @@ interface SelectProps {
     defaultValue?: string[];
     className?: string;
     items: SelectItem[];
+    showChackBox?: boolean;
+    placeholder?: string;
     onSelect: (selectedItems: string[]) => void;
 }
 
@@ -22,6 +24,8 @@ export default function Select({
     items,
     defaultValue,
     onSelect,
+    showChackBox = false,
+    placeholder,
     className,
 }: SelectProps) {
     const [selectedItem, setSelectedItem] = useState<string[]>(
@@ -39,14 +43,21 @@ export default function Select({
                 }}
             >
                 <div className={styles.selectedItems}>
-                    <span>
-                        {items
-                            .filter(
-                                (item) => selectedItem.indexOf(item.value) > -1
-                            )
-                            .map((item, i) => item.title)
-                            .join(', ')}
-                    </span>
+                    {selectedItem.length > 0 ? (
+                        <span>
+                            {items
+                                .filter(
+                                    (item) =>
+                                        selectedItem.indexOf(item.value) > -1
+                                )
+                                .map((item, i) => item.title)
+                                .join(', ')}
+                        </span>
+                    ) : (
+                        <span className={styles.placeholder}>
+                            {placeholder}
+                        </span>
+                    )}
                     <ReactSVG src="/images/icons/ui/ChevronDownGray.svg" />
                 </div>
                 <div
@@ -61,7 +72,7 @@ export default function Select({
                                 className={styles.searchicon}
                             />
                         }
-                        onClick={(event)=>{
+                        onClick={(event) => {
                             event.preventDefault();
                             event.stopPropagation();
                         }}
@@ -97,12 +108,15 @@ export default function Select({
                                 src={`/images/icons/flags/${item.value}.svg`}
                             />
                             <span>{item.title}</span>
-                            <div
-                                className={classNames(styles.check, {
-                                    [`${styles.checked as string}`]:
-                                        selectedItem.indexOf(item.value) > -1,
-                                })}
-                            ></div>
+                            {showChackBox ? (
+                                <div
+                                    className={classNames(styles.check, {
+                                        [`${styles.checked as string}`]:
+                                            selectedItem.indexOf(item.value) >
+                                            -1,
+                                    })}
+                                ></div>
+                            ) : null}
                         </div>
                     ))}
                 </div>

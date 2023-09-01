@@ -221,6 +221,7 @@ function EditSliderModal({ onBackClick, onConfirm }: ModalProps) {
                 <Table
                     columns={columns}
                     data={data}
+                    headerClassName={styles.modalTableHeader}
                     rowClassName={styles.modalTableRow}
                     className={styles.table}
                 />

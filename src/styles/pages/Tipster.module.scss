@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    
+
     .pageTitle {
         font-family: Noto Sans;
         font-size: 24px;
@@ -219,35 +219,42 @@
             }
         }
     }
-}
+}   
 
 .modal {
     .tableContainer {
         width: 100%;
     }
-    .modalTableRow{
+    div.modalTableHeader{
+        border: none;
+    }
+    .modalTableRow {
         grid-template-columns: 25% 30% 20% 7.5% 17.5%;
+        border-radius: 4px;
+        border: 1px solid #cfd1d5;
         min-height: 54px;
     }
-    .statusCheck{
+    .statusCheck {
         display: flex;
         align-items: center;
         gap: 30px;
-        justify-content: flex-end   ;
+        justify-content: flex-end;
         div {
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
         }
-        .cancelCircle{
+        .cancelCircle {
             transform: rotate(45deg);
             path {
-                stroke:#DF371F;
+                stroke: #df371f;
             }
         }
     }
-    .imageContainer, .tableEditCell, .status{
+    .imageContainer,
+    .tableEditCell,
+    .status {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -260,7 +267,7 @@
             border-radius: 50%;
             width: 36px;
             height: 36px;
-            border: 1px solid #989A9E;
+            border: 1px solid #989a9e;
         }
         .editImageBtn {
             cursor: pointer;
@@ -280,14 +287,14 @@
         justify-content: flex-end;
     }
 
-    .editBtn{
+    .editBtn {
         cursor: pointer;
     }
-    .inputCell{
+    .inputCell {
         padding-right: 20px;
     }
 
-    .modalActions{
+    .modalActions {
         width: 100%;
         display: flex;
         align-items: center;
@@ -322,7 +329,7 @@
         }
     }
 }
-.imageInput{
+.imageInput {
     display: flex;
     flex-direction: column;
     align-items: flex-end;

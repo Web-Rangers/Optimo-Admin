@@ -64,9 +64,11 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: normal;
+                    border-radius: 8px;
                     color: #989a9e;
                     &.currentTab {
                         color: #7f3ffc;
+                        background: #f7f4ff;
                     }
                 }
             }
@@ -156,7 +158,7 @@
                         font-size: 12px;
                         font-style: normal;
                         font-weight: 500;
-                        line-height: 18px; 
+                        line-height: 18px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -231,6 +233,9 @@
             .title {
                 font-family: Noto Sans;
                 display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
                 justify-content: space-between;
                 font-size: 20px;
                 font-weight: 600;
@@ -238,6 +243,10 @@
                 letter-spacing: 0em;
                 text-align: left;
                 color: #201522;
+                .timeSelect>div{
+                    min-height: unset;
+
+                }
                 .addPrizeText {
                     display: flex;
                     color: #7f3ffc;
@@ -254,6 +263,11 @@
                         display: flex;
                         align-items: center;
                     }
+                }
+            }
+            .innactive {
+                path {
+                    stroke: #898b94;
                 }
             }
             .text {
@@ -296,6 +310,10 @@
                     padding: 30px 0;
                     border: 1px dashed #7f3ffc;
                     border-radius: 4px;
+                    span {
+                        display: flex;
+                        white-space: nowrap;
+                    }
                 }
             }
             .inputRow {

@@ -6,6 +6,7 @@ import { ReactSVG } from 'react-svg';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Input from '@components/inputs/Input';
+import Select from '@components/inputs/Select';
 
 const Comp: NextPage = () => {
     const [tab, setTab] = useState(2);
@@ -107,7 +108,8 @@ const Comp: NextPage = () => {
                                 <button className={styles.text}>
                                     <ReactSVG
                                         src="/images/icons/ui/ChevronRight.svg"
-                                        style={{ transform: 'rotate(180deg)' }}
+                                        style={{ transform: 'rotate(180deg)'}}
+                                        className={styles.innactive}
                                     />
                                     <ReactSVG src="/images/icons/ui/ChevronRight.svg" />
                                 </button>
@@ -245,7 +247,7 @@ const Comp: NextPage = () => {
                                                     200$
                                                 </div>
                                                 <div className={styles.place}>
-                                                    2st place
+                                                    2nd place
                                                 </div>
                                             </div>
                                             <div
@@ -292,7 +294,7 @@ const Comp: NextPage = () => {
                                                     130$
                                                 </div>
                                                 <div className={styles.place}>
-                                                    3st place
+                                                    3rd place
                                                 </div>
                                             </div>
                                             <div
@@ -342,6 +344,7 @@ const Comp: NextPage = () => {
                         <div className={styles.block}>
                             <div className={styles.title}>
                                 The presenters have won
+                                <Select className={styles.timeSelect} items={[{title:'New one first',value:'1'}]} defaultValue='1' onSelect={()=>{return;}} title='' variant='text'/>
                             </div>
                             <div className={styles.compsWrapper}>
                                 {Array.from(new Array(8).keys()).map((key) => {

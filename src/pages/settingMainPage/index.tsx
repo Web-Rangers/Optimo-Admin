@@ -85,6 +85,9 @@ function EditHeaderModal({ onBackClick, onConfirm }: ModalProps) {
                             items={[
                                 { title: 'Football', value: '1' },
                                 { title: 'Rugby', value: '2' },
+                                { title: 'Hockey', value: '3' },
+                                { title: 'Boxing', value: '4' },
+                                { title: 'Handball', value: '5' },
                             ]}
                         />
                     </div>

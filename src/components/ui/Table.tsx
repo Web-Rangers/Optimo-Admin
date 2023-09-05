@@ -14,6 +14,7 @@ interface ColumnDefinition {
     dataIndex: any;
     headerStyle?: React.CSSProperties;
     cellStyle?: React.CSSProperties;
+    onClick?:()=>void;
     render?: (
         record: any,
         key: any,
@@ -233,7 +234,7 @@ const TableRow = ({
             )}
         >
             {columnsDefinition.map(
-                ({ dataIndex, render, cellStyle }, index) => {
+                ({ dataIndex, render, cellStyle, onClick }, index) => {
                     if (render) {
                         const newLocal = dataIndex;
                         return render(
@@ -252,6 +253,7 @@ const TableRow = ({
                                     styles.tableCellTemplate as string
                                 } ${cellClassName as string}`}
                                 style={cellStyle ? cellStyle : undefined}
+                                onClick={onClick}
                             >
                                 {record[dataIndex]}
                             </div>

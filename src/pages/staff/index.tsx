@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/Staff.module.scss';
+import tableStyles from '@styles/components/ui/Table.module.scss';
 import { useState } from 'react';
 import Table from '@components/ui/Table';
 import { ReactSVG } from 'react-svg';
@@ -27,21 +28,65 @@ const Staff: NextPage = () => {
             key: 'name',
             title: 'Full Name',
             dataIndex: 'name',
+            render: (name: string) => (
+                <Link href={'/staff/staffPage'}>
+                    <div
+                        className={`${tableStyles.tableCell as string} ${
+                            tableStyles.tableCellTemplate as string
+                        }`}
+                    >
+                        {name}
+                    </div>
+                </Link>
+            ),
         },
         {
             key: 'mail',
             title: 'Email',
             dataIndex: 'mail',
+            render: (mail: string) => (
+                <Link href={'/staff/staffPage'}>
+                    <div
+                        className={`${tableStyles.tableCell as string} ${
+                            tableStyles.tableCellTemplate as string
+                        }`}
+                    >
+                        {mail}
+                    </div>
+                </Link>
+            ),
         },
         {
             key: 'nickname',
             title: 'Nickname',
             dataIndex: 'nickname',
+            render: (nickname: string) => (
+                <Link href={'/staff/staffPage'}>
+                    <div
+                        className={`${tableStyles.tableCell as string} ${
+                            tableStyles.tableCellTemplate as string
+                        }`}
+                    >
+                        {nickname}
+                    </div>
+                </Link>
+            ),
         },
         {
             key: 'role',
             title: 'Role',
             dataIndex: 'role',
+            render: (role: string) => (
+                <Link href={'/staff/staffPage'}>
+                    <div
+                        className={`${tableStyles.tableCell as string} ${
+                            tableStyles.tableCellTemplate as string
+                        }`}
+                    >
+                        {role}
+                    </div>
+                </Link>
+            ),
         },
         {
             key: 'status',
@@ -54,25 +99,29 @@ const Staff: NextPage = () => {
             },
             render: (status: string) => {
                 return (
-                    <div className={styles.badgeCell}>
-                        {status === 'active' ? <Badge text="Active" /> : null}
-                        {status === 'inactive' ? (
-                            <Badge
-                                dotColor="#667085"
-                                backColor="#F2F4F7"
-                                textColor="#344054"
-                                text="Inactive"
-                            />
-                        ) : null}
-                        {status === 'blocked' ? (
-                            <Badge
-                                dotColor="#DF371F"
-                                backColor="#FDF2FA"
-                                textColor="#C22E18"
-                                text="Blocked"
-                            />
-                        ) : null}
-                    </div>
+                    <Link href={'/staff/staffPage'}>
+                        <div className={styles.badgeCell}>
+                            {status === 'active' ? (
+                                <Badge text="Active" />
+                            ) : null}
+                            {status === 'inactive' ? (
+                                <Badge
+                                    dotColor="#667085"
+                                    backColor="#F2F4F7"
+                                    textColor="#344054"
+                                    text="Inactive"
+                                />
+                            ) : null}
+                            {status === 'blocked' ? (
+                                <Badge
+                                    dotColor="#DF371F"
+                                    backColor="#FDF2FA"
+                                    textColor="#C22E18"
+                                    text="Blocked"
+                                />
+                            ) : null}
+                        </div>
+                    </Link>
                 );
             },
         },

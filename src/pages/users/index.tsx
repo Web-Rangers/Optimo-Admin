@@ -85,6 +85,9 @@ const Users: NextPage = () => {
                         <ReactSVG
                             className={styles.expand}
                             src="/images/icons/ui/chevronRight.svg"
+                            style={{
+                                transform: `rotate(${isExpand ? 90 : 0}deg)`,
+                            }}
                             onClick={() => setIsExpand(!isExpand)}
                         />
                         <Link href={'/users/userPage'}>

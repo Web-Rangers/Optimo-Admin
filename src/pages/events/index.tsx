@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MultiSelect from '@components/inputs/MultiSelect';
 import { ReactSVG } from 'react-svg';
+import Modal from '@components/modals/Modal';
+import { useState } from 'react';
 
 interface EventProps {
     sport: string;
@@ -16,6 +18,13 @@ interface EventProps {
     date: string;
     tips: string;
     league: string;
+}
+
+interface FiltersModalProps {
+    onCancel: () => void;
+    leagues?: string[];
+    date?: string;
+    onApply: (leagues: string[], date: string) => void;
 }
 
 const data: EventProps[] = Array.from(new Array(8).keys()).map((key) => {
@@ -110,18 +119,94 @@ const Event = ({
     );
 };
 
+const FiltersModal = ({
+    onCancel,
+    onApply,
+    date,
+    leagues,
+}: FiltersModalProps) => {
+    return (
+        <Modal onBackClick={onCancel} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Filters</div>
+                <div className={styles.close} onClick={onCancel}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.body}>
+                <MultiSelect
+                    placeholder="All"
+                    title="Leagues"
+                    showChackBox
+                    className={styles.multiSelect}
+                    items={[
+                        {
+                            title: 'Premier League',
+                            value: 'ca',
+                        },
+                        {
+                            title: 'Bundesliga',
+                            value: 'de',
+                        },
+                        {
+                            title: 'Seria A',
+                            value: 'gb',
+                        },
+                        {
+                            title: 'LaLiga',
+                            value: 'br',
+                        },
+                        {
+                            title: 'Eradivisie',
+                            value: 'es',
+                        },
+                    ]}
+                    onSelect={() => 0}
+                />
+                <MultiSelect
+                    placeholder="All"
+                    title="Date"
+                    showChackBox
+                    className={styles.multiSelect}
+                    items={[]}
+                    onSelect={() => 0}
+                />
+            </div>
+            <div className={styles.modalActions}>
+                <button className={styles.outlineButton} onClick={onCancel}>
+                    Clear
+                </button>
+                <button
+                    className={styles.fillButton}
+                    onClick={() => onApply([], '')}
+                >
+                    Apply
+                </button>
+            </div>
+        </Modal>
+    );
+};
+
 const Events: NextPage = () => {
+    const [filtersOpen, setFiltersOpen] = useState(false);
     return (
         <>
+            {filtersOpen && (
+                <FiltersModal
+                    onCancel={() => setFiltersOpen(false)}
+                    onApply={(leagues, date) => setFiltersOpen(false)}
+                />
+            )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
                     Events
                     <div className={styles.filters}>
-                        <div className={styles.moreFiltersBtn}>
+                        <div
+                            className={styles.moreFiltersBtn}
+                            onClick={() => setFiltersOpen(true)}
+                        >
                             More filters
-                            <div className={styles.counter}>
-                                1
-                            </div>
+                            <div className={styles.counter}>1</div>
                         </div>
                         <MultiSelect
                             placeholder="All sports"

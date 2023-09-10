@@ -5,15 +5,13 @@
     position: relative;
     flex: 1 1 auto;
     .label {
-        //styleName: Text;
+        color: #292b2f;
+
         font-family: Noto Sans;
         font-size: 16px;
+        font-style: normal;
         font-weight: 400;
-        line-height: 22px;
-        letter-spacing: 0em;
-        text-align: left;
-
-        color: #898b94;
+        line-height: normal;
     }
     .input {
         display: flex;
@@ -72,6 +70,7 @@
             cursor: pointer;
         }
         .itemWrapper {
+            z-index: 1000;
             position: absolute;
             display: flex;
             flex-direction: column;

@@ -337,6 +337,7 @@ function EditHeaderModal({ onBackClick, onConfirm }: ModalProps) {
                 <Table
                     columns={columns}
                     data={sports}
+                    headerClassName={styles.modalTableHeader}
                     rowClassName={styles.modalTableRow}
                     className={styles.table}
                 />

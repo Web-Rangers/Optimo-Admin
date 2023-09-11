@@ -7,6 +7,9 @@ import { ReactSVG } from 'react-svg';
 import Image from 'next/image';
 import Modal from '@components/modals/Modal';
 import Select from '@components/inputs/Select';
+import Input from '@components/inputs/Input';
+import DatePicker from '@components/inputs/DatePicker';
+import TimePicker from '@components/inputs/TimePicker';
 
 const data = Array.from(new Array(5).keys()).map((key) => {
     return {
@@ -33,6 +36,138 @@ interface ModalProps {
     onBackClick?: () => void;
     onConfirm?: () => void;
 }
+
+interface SlideData {
+    id: string;
+    event: string;
+    publishDate: string;
+    expirationDate: string;
+    publishTime: string;
+    image: string;
+}
+
+interface CreateModalProps {
+    onCancel?: () => void;
+    onApply?: (data: SlideData) => void;
+}
+
+const CreateModal = ({ onCancel, onApply }: CreateModalProps) => {
+    return (
+        <Modal onBackClick={onCancel} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Create slide</div>
+                <div className={styles.close} onClick={onCancel}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.body}>
+                <div className={styles.column}>
+                    <Input label="Id" placeholder="Id" />
+                    <Select
+                        title="Event"
+                        onSelect={() => 0}
+                        items={[{ title: 'a', value: 'a' }]}
+                        placeholder="Event"
+                    />
+                    <DatePicker
+                        className={styles.datePicker}
+                        label="Publish date"
+                        mode="single"
+                        placeholder="Publish date"
+                        name="Publish date"
+                    />
+                    <TimePicker
+                        className={styles.timePicker}
+                        label="Publish Time"
+                        placeholder="Publish Time"
+                    />
+                </div>
+                <div className={styles.column}>
+                    <div className={styles.uploadFile}>
+                        <ReactSVG src="/images/icons/ui/CloudUpload.svg" />
+                        <span className={styles.inputText}>
+                            Drop image here, or{' '}
+                            <button className={styles.text}>browse</button>
+                        </span>
+                    </div>
+                    <DatePicker
+                        className={styles.datePicker}
+                        label="Expiration date"
+                        mode="single"
+                        placeholder="Expiration date"
+                        name="Publish date"
+                    />
+                </div>
+            </div>
+            <div className={styles.modalActions}>
+                <button className={styles.outlineButton} onClick={onCancel}>
+                    Cancel
+                </button>
+                <button
+                    className={styles.fillButton}
+                    // onClick={() => onApply())}
+                >
+                    Create slide
+                </button>
+            </div>
+        </Modal>
+    );
+};
+
+const EditModal = ({ onCancel, onApply }: CreateModalProps) => {
+    return (
+        <Modal onBackClick={onCancel} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Edit slide</div>
+                <div className={styles.close} onClick={onCancel}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.body}>
+                <div className={styles.column}>
+                    <Input label="Id" placeholder="Id" />
+                    <Select
+                        title="Event"
+                        onSelect={() => 0}
+                        items={[{ title: 'a', value: 'a' }]}
+                        placeholder="Event"
+                    />
+                    <DatePicker
+                        className={styles.timePicker}
+                        label="Expiration date"
+                        mode="single"
+                        placeholder="Expiration date"
+                        name="Publish date"
+                    />
+                </div>
+                <div className={styles.column}>
+                    <Image
+                        className={styles.image}
+                        src={'/images/slider/slide2.png'}
+                        alt="image"
+                        width={350}
+                        height={200}
+                    />
+                    <button className={styles.textBtn}>
+                        <ReactSVG src="/images/icons/ui/CloudUpload.svg" />
+                        Upload image
+                    </button>
+                </div>
+            </div>
+            <div className={styles.modalActions}>
+                <button className={styles.outlineButton} onClick={onCancel}>
+                    Cancel
+                </button>
+                <button
+                    className={styles.fillButton}
+                    // onClick={() => onApply())}
+                >
+                    Create slide
+                </button>
+            </div>
+        </Modal>
+    );
+};
 
 function EditHeaderModal({ onBackClick, onConfirm }: ModalProps) {
     const [selected, setSelected] = useState('1');
@@ -215,6 +350,8 @@ function EditHeaderModal({ onBackClick, onConfirm }: ModalProps) {
 
 const Settings: NextPage = () => {
     const [headerEdit, setHeaderEdit] = useState(false);
+    const [slideCreate, setSlideCreate] = useState(false);
+    const [slideEdit, setSlideEdit] = useState(false);
     const columns = [
         {
             key: 'id',
@@ -244,6 +381,7 @@ const Settings: NextPage = () => {
                 return (
                     <span className={styles.tableEditCell}>
                         <ReactSVG
+                            onClick={() => setSlideEdit(true)}
                             className={styles.editBtn}
                             src={'/images/icons/ui/ThinPencil.svg'}
                         />
@@ -269,6 +407,18 @@ const Settings: NextPage = () => {
     ];
     return (
         <>
+            {slideEdit && (
+                <EditModal
+                    onApply={(data) => 0}
+                    onCancel={() => setSlideEdit(false)}
+                />
+            )}
+            {slideCreate && (
+                <CreateModal
+                    onApply={(data) => 0}
+                    onCancel={() => setSlideCreate(false)}
+                />
+            )}
             {headerEdit && (
                 <EditHeaderModal onBackClick={() => setHeaderEdit(false)} />
             )}
@@ -283,7 +433,15 @@ const Settings: NextPage = () => {
                     </button>
                 </div>
                 <div className={styles.block}>
-                    <div className={styles.title}>Slider</div>
+                    <div className={styles.title}>
+                        Slider
+                        <span
+                            className={styles.addPrizeText}
+                            onClick={() => setSlideCreate(true)}
+                        >
+                            <ReactSVG src="/images/icons/ui/Plus.svg" /> Create
+                        </span>
+                    </div>
                     <Table
                         data={data}
                         columns={columns}

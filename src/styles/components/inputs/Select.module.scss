@@ -56,6 +56,14 @@
             font-weight: 400;
             line-height: normal;
             display: flex;
+            .placeholder {
+                color: #898b94;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
             > span {
                 flex: 1 0 auto;
             }
@@ -73,6 +81,7 @@
             border-radius: 8px;
             background: #fff;
             min-width: 200px;
+            width: 100%;
             transition: all 0.4s ease-out;
             overflow-x: hidden;
             z-index: 1000;

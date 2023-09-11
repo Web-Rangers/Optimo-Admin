@@ -12,6 +12,7 @@ interface SelectItem {
 interface SelectProps {
     title: string;
     defaultValue?: string;
+    placeholder?: string;
     className?: string;
     variant?: 'default' | 'text';
     items: SelectItem[];
@@ -25,6 +26,7 @@ export default function Select({
     onSelect,
     variant = 'default',
     className,
+    placeholder,
 }: SelectProps) {
     const [selectedItem, setSelectedItem] = useState<string>(
         defaultValue ?? ''
@@ -47,12 +49,19 @@ export default function Select({
                 }}
             >
                 <div className={styles.selectedItem}>
-                    <span>
-                        {
-                            items.find((item) => item.value === selectedItem)
-                                ?.title
-                        }
-                    </span>
+                    {selectedItem !== '' ? (
+                        <span>
+                            {
+                                items.find(
+                                    (item) => item.value === selectedItem
+                                )?.title
+                            }
+                        </span>
+                    ) : (
+                        <span className={styles.placeholder}>
+                            {placeholder}
+                        </span>
+                    )}
                     <ReactSVG src="/images/icons/ui/ChevronDownGray.svg" />
                 </div>
                 <div

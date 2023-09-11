@@ -100,7 +100,7 @@
     }
     position: absolute;
     cursor: default;
-    top: 90px;
+    top: 110px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -138,6 +138,56 @@
         }
     }
 
+    &.timePicker {
+        flex-direction: row;
+        padding: 10px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 240px;
+        > .numberSelect {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .rotate {
+                transform: rotate(180deg);
+            }
+            .value {
+                user-select: none;
+                color: #201522;
+                font-family: Noto Sans;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .control {
+                cursor: pointer;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        > span {
+            user-select: none;
+            color: #201522;
+            font-family: Noto Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
     &::after {
         content: ' ';
         width: 0;

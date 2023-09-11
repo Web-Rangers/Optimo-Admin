@@ -155,13 +155,11 @@ export default function DatePicker({
                         (mode === 'range' && styles.hideDefaultIcon) || ''
                     }
                 />
-                {mode === 'range' && (
-                    <ReactSVG
-                        src={'/images/icons/ui/calendar.svg'}
-                        className={classNames(styles.iconContainer)}
-                        onClick={() => setIsOpen(!isOpen)}
-                    />
-                )}
+                <ReactSVG
+                    src={'/images/icons/ui/calendar.svg'}
+                    className={classNames(styles.iconContainer)}
+                    onClick={() => setIsOpen(!isOpen)}
+                />
                 {mode === 'single' && (
                     <Picker
                         isOpen={isOpen}
@@ -180,10 +178,7 @@ export default function DatePicker({
                             onChange?.call(null, start);
                         }}
                         dateEndChange={(start, end) => {
-                            onChange?.call(
-                                null,
-                                `${start} - ${end}`
-                            );
+                            onChange?.call(null, `${start} - ${end}`);
                         }}
                     />
                 )}
@@ -194,8 +189,8 @@ export default function DatePicker({
 
 interface RangePickerProps {
     isOpen?: boolean;
-    dateStartChange?: (value:string) => void;
-    dateEndChange?: (startValue:string, endValue:string) => void;
+    dateStartChange?: (value: string) => void;
+    dateEndChange?: (startValue: string, endValue: string) => void;
     onClose?: () => void;
 }
 
@@ -347,7 +342,7 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                 capture: true,
             });
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
     const clickNotOnBlock = (e: MouseEvent) => {
@@ -371,10 +366,9 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                     onClick={() => setDate(getPrevMonthDate(date))}
                 >
                     <Image
-                        src="/images/icons/calendar/chevron.svg"
+                        src="/images/icons/datepicker/left.svg"
                         width={20}
                         height={20}
-                        style={{ transform: 'rotateZ(180deg)' }}
                         alt="chevron"
                     />
                 </div>
@@ -388,7 +382,7 @@ const Picker = ({ isOpen, onChange, onClose }: PickerProps) => {
                 >
                     <Image
                         alt="chevron"
-                        src="/images/icons/calendar/chevron.svg"
+                        src="/images/icons/datepicker/right.svg"
                         width={20}
                         height={20}
                     />
@@ -549,14 +543,18 @@ const RangePicker = ({
             nextDate.getMonth(),
             nextDate.getFullYear()
         );
-        const days:JSX.Element[] = [];
+        const days: JSX.Element[] = [];
         for (let i = 6; i < 13; i++) {
             days.push(
                 <DayHeader
                     key={`dhrpn${i}`}
                     title={DayName[i % 7] as string}
                     className={
-                        i === 0 ? styles.left as string : i === 6 ? styles.right as string : undefined
+                        i === 0
+                            ? (styles.left as string)
+                            : i === 6
+                            ? (styles.right as string)
+                            : undefined
                     }
                 />
             );

@@ -84,7 +84,7 @@ const Users: NextPage = () => {
                     <span className={styles.tableNameCell}>
                         <ReactSVG
                             className={styles.expand}
-                            src="/images/icons/ui/chevronRight.svg"
+                            src="/images/icons/ui/ChevronRight.svg"
                             style={{
                                 transform: `rotate(${isExpand ? 90 : 0}deg)`,
                             }}

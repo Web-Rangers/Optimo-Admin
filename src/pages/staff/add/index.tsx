@@ -6,17 +6,28 @@ import Input from '@components/inputs/Input';
 import Radio from '@components/inputs/Radio';
 import CheckBox from '@components/ui/CheckBox';
 import ConfirmModal from '@components/modals/ConfirmModal';
+import NotifyModal from '@components/modals/NotifyModal';
 
 const StaffEdit: NextPage = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isNotifyOpen, setIsNotifyOpen] = useState(false);
     return (
         <>
+            {isNotifyOpen && (
+                <NotifyModal
+                    acceptText="Ok"
+                    title="Access password"
+                    text="The password was sent to the user by email"
+                    onAccept={() => setIsNotifyOpen(false)}
+                />
+            )}
             {isOpen ? (
                 <ConfirmModal
                     acceptText="Yes, add"
                     cancelText="No, cancel"
                     text="Are you sure you want to add this employee?"
                     title="Add confirmation"
+                    onAccept={()=> setIsNotifyOpen(true)}
                     onBackClick={() => setIsOpen(false)}
                 />
             ) : (

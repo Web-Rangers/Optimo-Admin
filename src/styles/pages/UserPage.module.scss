@@ -321,6 +321,38 @@
                     }
                     .tableRow {
                         grid-template-columns: 30% 30% 20% 20%;
+                        row-gap: 15px;
+                    }
+                    .refund {
+                        grid-column: span 5 / auto;
+                        display: flex;
+                        padding: 17px 15px;
+                        margin: 0 -15px -20px -15px;
+                        border-radius: 0px 0px 8px 8px;
+                        background: #f7f4ff;
+                        .whiteSpace {
+                            width: 100%;
+                        }
+                        .refundButton {
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 5px;
+                            div {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            span {
+                                color: var(--Main-Color, #7f3ffc);
+                                font-family: Noto Sans;
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: normal;
+                            }
+                        }
                     }
                     .tableSubRow {
                         grid-template-columns: 15% 30% 20% 15% 20%;
@@ -367,7 +399,7 @@
     padding: 24px;
     border-radius: 8px;
     background: #fff;
-    gap: 15px;  
+    gap: 15px;
     &.smallPadding {
         padding: 17px 16px 20px 16px;
     }

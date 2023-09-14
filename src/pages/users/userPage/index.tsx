@@ -19,12 +19,19 @@ interface planeProps {
     children?: React.ReactNode;
 }
 
-const data = Array.from(new Array(5).keys()).map(() => {
+const data = Array.from(new Array(6).keys()).map((i) => {
     return {
         type: 'Deposit',
         date: '23.03.2023',
         amount: '140 $',
-        status: 'Successful',
+        status:
+            i === 1
+                ? 'Failed'
+                : i === 2
+                ? 'In progress'
+                : i === 3
+                ? 'Canceled'
+                : 'Successful',
     };
 });
 
@@ -120,7 +127,8 @@ const UserPage: NextPage = () => {
                             className={classNames(styles.indicator, {
                                 [`${styles.green as string}`]:
                                     text === 'Successful',
-                                [`${styles.red as string}`]: text === 'Failed',
+                                [`${styles.red as string}`]:
+                                    text === 'Failed' || text === 'Canceled',
                                 [`${styles.yellow as string}`]:
                                     text === 'In progress',
                             })}
@@ -128,6 +136,24 @@ const UserPage: NextPage = () => {
                         <span className={styles.text}>{text}</span>
                     </div>
                 );
+            },
+        },
+        {
+            key: 'status',
+            title: '',
+            dataIndex: 'status',
+            render: (text: any) => {
+                if (text === 'In progress' || text === 'Canceled')
+                    return (
+                        <div className={styles.refund}>
+                            <div className={styles.whiteSpace}></div>
+                            <div className={styles.refundButton}>
+                                <ReactSVG src="/images/icons/ui/Refund.svg" />
+                                <span>Refund</span>
+                            </div>
+                        </div>
+                    );
+                return <></>;
             },
         },
     ];

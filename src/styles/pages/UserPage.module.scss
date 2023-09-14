@@ -108,6 +108,8 @@
                 width: 100%;
                 justify-content: center;
                 .outlineBlock {
+                    cursor: pointer;
+                    user-select: none;
                     padding: 20px 0;
                     flex: 1 1 auto;
                     display: flex;
@@ -533,6 +535,86 @@
             background: #ff6300;
             display: flex;
             align-items: center;
+        }
+    }
+}
+
+.modal {
+    min-width: 500px;
+    .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title {
+            font-family: Noto Sans;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 33px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #201522;
+        }
+        .close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    .body{
+        width: 100%;
+    }
+    .photoWrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 16px;
+        row-gap: 16px;
+        img {
+            object-fit: cover;
+        }
+    }
+    .buttons {
+        display: flex;
+        gap: 35px;
+        width: 100%;
+        button {
+            flex: 1 1 auto;
+        }
+        .outlineButton {
+            padding: 15px 45px;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid #7f3ffc; //styleName: Text;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #7F3FFC;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .fillButton {
+            padding: 15px 45px;
+            outline: none;
+            border: none;
+            background-color: #7f3ffc; //styleName: Text;
+            font-family: Noto Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
         }
     }
 }

@@ -6,12 +6,8 @@ import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import Table from '@components/ui/Table';
 import Select from '@components/inputs/Select';
-
-// interface StuffProfile {
-//     name: string;
-//     photo: string;
-//     mail: string;
-// }
+import Modal from '@components/modals/Modal';
+import Input from '@components/inputs/Input';
 
 interface planeProps {
     value: number;
@@ -45,8 +41,92 @@ const subData = Array.from(new Array(5).keys()).map((key) => {
     };
 });
 
+interface VerificationModalProps {
+    onBackClick: () => void;
+}
+
+interface ReplenishmentModalProps {
+    onBackClick: () => void;
+    onAccept: () => void;
+}
+
+const VerificationModal = ({ onBackClick }: VerificationModalProps) => {
+    return (
+        <Modal onBackClick={onBackClick} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Photo for verification</div>
+                <div className={styles.close} onClick={onBackClick}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.photoWrapper}>
+                <Image
+                    src={'/images/Passport.png'}
+                    alt="passport"
+                    width={200}
+                    height={150}
+                />
+                <Image
+                    src={'/images/Passport.png'}
+                    alt="passport"
+                    width={200}
+                    height={150}
+                />
+                <Image
+                    src={'/images/Passport.png'}
+                    alt="passport"
+                    width={200}
+                    height={150}
+                />
+                <Image
+                    src={'/images/Passport.png'}
+                    alt="passport"
+                    width={200}
+                    height={150}
+                />
+            </div>
+        </Modal>
+    );
+};
+
+const ReplenishmentModal = ({
+    onBackClick,
+    onAccept,
+}: ReplenishmentModalProps) => {
+    return (
+        <Modal onBackClick={onBackClick} className={styles.modal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Replenishment of coins</div>
+                <div className={styles.close} onClick={onBackClick}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.body}>
+                <Input label="Number of coins" placeholder="Number of coins" />
+                <Input style={{height:'142px'}} label="Message" placeholder="Message" multiline={true} type='text' />
+            </div>
+            <div className={styles.buttons}>
+                <button onClick={onBackClick} className={styles.outlineButton}>
+                    Cancel
+                </button>
+                <button
+                    onClick={() => {
+                        onAccept?.call(null);
+                        onBackClick?.call(null);
+                    }}
+                    className={styles.fillButton}
+                >
+                    Send
+                </button>
+            </div>
+        </Modal>
+    );
+};
+
 const UserPage: NextPage = () => {
     const [tab, setTab] = useState(0);
+    const [isVerification, setIsVerification] = useState(false);
+    const [isReplenishment, setIsReplenishment] = useState(false);
 
     const Plane = ({ currentValue, value, children }: planeProps) => {
         return (
@@ -162,6 +242,17 @@ const UserPage: NextPage = () => {
 
     return (
         <>
+            {isReplenishment && (
+                <ReplenishmentModal
+                    onAccept={() => setIsReplenishment(false)}
+                    onBackClick={() => setIsReplenishment(false)}
+                />
+            )}
+            {isVerification && (
+                <VerificationModal
+                    onBackClick={() => setIsVerification(false)}
+                />
+            )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>Users</div>
                 <div className={styles.content}>
@@ -188,7 +279,10 @@ const UserPage: NextPage = () => {
                             <div className={styles.outlineBlock}>
                                 {`1877.74 $`}
                             </div>
-                            <div className={styles.outlineBlock}>
+                            <div
+                                className={styles.outlineBlock}
+                                onClick={() => setIsReplenishment(true)}
+                            >
                                 {`1234.04`}
                                 <Image
                                     width={22}
@@ -203,7 +297,10 @@ const UserPage: NextPage = () => {
                                 <span className={styles.name}>Status</span>
                                 <span className={styles.value}>Verified</span>
                             </div>
-                            <button className={styles.text}>
+                            <button
+                                className={styles.text}
+                                onClick={() => setIsVerification(true)}
+                            >
                                 <ReactSVG src="/images/icons/ui/File.svg" />{' '}
                                 Look
                             </button>

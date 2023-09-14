@@ -30,6 +30,69 @@ interface PrizeEditModalProps {
     defaultValue: number;
 }
 
+interface Winner {
+    photo: string;
+    name: string;
+    prize: number;
+}
+
+interface WinnersModalProps {
+    winners: Winner[];
+    onBackClick: () => void;
+}
+
+const WinnersModal = ({ winners, onBackClick }: WinnersModalProps) => {
+    return (
+        <Modal onBackClick={onBackClick} className={styles.winnersModal}>
+            <div className={styles.header}>
+                <div className={styles.title}>Winners</div>
+                <div className={styles.close} onClick={onBackClick}>
+                    <ReactSVG src="/images/icons/ui/X.svg" />
+                </div>
+            </div>
+            <div className={styles.body}>
+                <Select
+                    className={styles.timeSelect}
+                    items={[
+                        {
+                            title: 'New one first',
+                            value: '1',
+                        },
+                    ]}
+                    defaultValue="1"
+                    onSelect={() => {
+                        return;
+                    }}
+                    title=""
+                    variant="text"
+                />
+                <div className={styles.winnerWrapper}>
+                    {winners.map((winner, index) => {
+                        return (
+                            <div key={index} className={styles.winner}>
+                                <div className={styles.winnerInfo}>
+                                    <Image
+                                        src={winner.photo}
+                                        alt="photo"
+                                        width={40}
+                                        height={40}
+                                    />
+                                    <div className={styles.name}>
+                                        {winner.name}
+                                    </div>
+                                </div>
+                                <div className={styles.prize}>
+                                    {`${winner.prize}$`}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </Modal>
+    );
+};
+
 const PrizeEditModal = ({
     onSuccess,
     onCancel,
@@ -69,9 +132,37 @@ const Comp: NextPage = () => {
     const [newDate, setNewDate] = useState('');
     const [prizeList, setPrizeList] = useState<number[]>([750, 200, 150]);
     const [isEdit, setIsEdit] = useState(false);
+    const [isWinnersShow, setIsWinnersShow] = useState(false);
     const [editingPrize, setEditingPrize] = useState(0);
     return (
         <>
+            {isWinnersShow && (
+                <WinnersModal
+                    winners={[
+                        {
+                            name: 'Cameron Williamson',
+                            photo: '/images/users/photo.png',
+                            prize: 1500,
+                        },
+                        {
+                            name: 'Brooklyn Simmons',
+                            photo: '/images/users/photo.png',
+                            prize: 250,
+                        },
+                        {
+                            name: 'Savannah Nguyen',
+                            photo: '/images/users/photo.png',
+                            prize: 750,
+                        },
+                        {
+                            name: 'Ralph Edwards',
+                            photo: '/images/users/photo.png',
+                            prize: 100,
+                        },
+                    ]}
+                    onBackClick={() => setIsWinnersShow(false)}
+                />
+            )}
             {isEdit ? (
                 <PrizeEditModal
                     onCancel={() => setIsEdit(false)}
@@ -418,6 +509,7 @@ const Comp: NextPage = () => {
                                                             }`]: key === 2,
                                                         }
                                                     )}
+                                                    onClick={()=>setIsWinnersShow(true)}
                                                 >
                                                     <span
                                                         className={styles.name}

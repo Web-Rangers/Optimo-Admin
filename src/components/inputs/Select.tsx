@@ -32,7 +32,9 @@ export default function Select({
         defaultValue ?? ''
     );
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
+    function closeSelect() {
+        setIsOpen(false);
+    }
     return (
         <div
             className={classNames([
@@ -44,7 +46,17 @@ export default function Select({
             <span className={styles.label}>{title}</span>
             <div
                 className={styles.input}
-                onClick={() => {
+                onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!isOpen) {
+                        window.addEventListener('click', closeSelect, {
+                            once: true,
+                        });
+                    }
+                    if (isOpen) {
+                        window.removeEventListener('click', closeSelect);
+                    }
                     setIsOpen((origin) => !origin);
                 }}
             >
@@ -77,6 +89,10 @@ export default function Select({
                                 e.stopPropagation();
                                 setSelectedItem(item.value);
                                 onSelect(item.value);
+                                window.removeEventListener(
+                                    'click',
+                                    closeSelect
+                                );
                                 setIsOpen(false);
                             }}
                             className={styles.selectItem}

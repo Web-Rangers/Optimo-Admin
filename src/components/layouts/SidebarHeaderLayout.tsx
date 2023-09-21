@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 
 interface LayoutProps {
     children: ReactNode[] | ReactNode;
@@ -17,7 +17,7 @@ interface MenuLinkProps {
     img: string;
     href: string;
     name: string;
-    router: any;
+    router: NextRouter;
 }
 
 const links = [
@@ -67,8 +67,8 @@ function MenuLink({ img, href, name, router }: MenuLinkProps) {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
-        setActive(location.pathname == href);
-    }, [router]);
+        setActive(router.route.indexOf(href)>-1);
+    }, [router.route]);
 
     return (
         <Link href={href}>

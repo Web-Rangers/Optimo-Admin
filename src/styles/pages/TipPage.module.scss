@@ -17,6 +17,12 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+        
+        .titleWithBreadCrumbs{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
     }
     .content {
         width: 100%;

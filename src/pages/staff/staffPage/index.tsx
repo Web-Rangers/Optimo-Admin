@@ -1,13 +1,17 @@
 import type { NextPage } from 'next';
 import styles from '@styles/pages/Staff.module.scss';
 import Image from 'next/image';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const StaffEdit: NextPage = () => {
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Staff
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Staff
+                        <BreadCrumbs />
+                    </div>
                     <button className={styles.fillButton}>Log out staff</button>
                 </div>
                 <div className={styles.block}>

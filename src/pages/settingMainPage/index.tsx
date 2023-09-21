@@ -10,6 +10,7 @@ import Select from '@components/inputs/Select';
 import Input from '@components/inputs/Input';
 import DatePicker from '@components/inputs/DatePicker';
 import TimePicker from '@components/inputs/TimePicker';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const data = Array.from(new Array(5).keys()).map((key) => {
     return {
@@ -425,7 +426,10 @@ const Settings: NextPage = () => {
             )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Setting main page 
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Setting main page
+                        <BreadCrumbs />
+                    </div>
                     <button
                         className={styles.fillButton}
                         onClick={() => setHeaderEdit(true)}

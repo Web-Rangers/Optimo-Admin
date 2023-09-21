@@ -8,6 +8,7 @@ import Table from '@components/ui/Table';
 import Select from '@components/inputs/Select';
 import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 interface planeProps {
     value: number;
@@ -103,7 +104,13 @@ const ReplenishmentModal = ({
             </div>
             <div className={styles.body}>
                 <Input label="Number of coins" placeholder="Number of coins" />
-                <Input style={{height:'142px'}} label="Message" placeholder="Message" multiline={true} type='text' />
+                <Input
+                    style={{ height: '142px' }}
+                    label="Message"
+                    placeholder="Message"
+                    multiline={true}
+                    type="text"
+                />
             </div>
             <div className={styles.buttons}>
                 <button onClick={onBackClick} className={styles.outlineButton}>
@@ -254,7 +261,12 @@ const UserPage: NextPage = () => {
                 />
             )}
             <div className={styles.container}>
-                <div className={styles.pageTitle}>Users</div>
+                <div className={styles.pageTitle}>
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Users
+                        <BreadCrumbs />
+                    </div>
+                </div>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
                         <div className={styles.imageContainer}>

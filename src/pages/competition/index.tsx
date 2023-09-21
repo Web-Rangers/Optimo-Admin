@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Input from '@components/inputs/Input';
 import Select from '@components/inputs/Select';
 import Modal from '@components/modals/Modal';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 function ordinal_suffix_of(i: number) {
     const j: number = i % 10,
@@ -177,7 +178,13 @@ const Comp: NextPage = () => {
             ) : null}
             <div className={styles.container}>
                 <div className={styles.pageHeader}>
-                    <div className={styles.pageTitle}>Competition</div>
+                    <div className={styles.pageTitle}>
+                        <div className={styles.titleWithBreadCrumbs}>
+                            Competition
+                            <BreadCrumbs />
+                        </div>
+                    </div>
+
                     <div className={styles.tabSelect}>
                         <div className={styles.selectName}>Competition:</div>
                         <div className={styles.tabs}>
@@ -509,7 +516,9 @@ const Comp: NextPage = () => {
                                                             }`]: key === 2,
                                                         }
                                                     )}
-                                                    onClick={()=>setIsWinnersShow(true)}
+                                                    onClick={() =>
+                                                        setIsWinnersShow(true)
+                                                    }
                                                 >
                                                     <span
                                                         className={styles.name}

@@ -7,6 +7,7 @@ import MultiSelect from '@components/inputs/MultiSelect';
 import { ReactSVG } from 'react-svg';
 import Modal from '@components/modals/Modal';
 import { useState } from 'react';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 interface EventProps {
     sport: string;
@@ -199,7 +200,10 @@ const Events: NextPage = () => {
             )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Events
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Events
+                        <BreadCrumbs />
+                    </div>
                     <div className={styles.filters}>
                         <div
                             className={styles.moreFiltersBtn}

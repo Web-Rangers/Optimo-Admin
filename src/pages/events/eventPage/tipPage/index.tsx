@@ -6,6 +6,7 @@ import Modal from '@components/modals/Modal';
 import Radio from '@components/inputs/Radio';
 import { boolean } from 'zod';
 import { useState } from 'react';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 interface HideModalProps {
     onCancel?: () => void;
@@ -47,7 +48,12 @@ const TipPage: NextPage = () => {
         <>
             {modalShow && <HideModal onCancel={() => setModalShow(false)} />}
             <div className={styles.container}>
-                <div className={styles.pageTitle}>Tip page</div>
+                <div className={styles.pageTitle}>
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Tip page
+                        <BreadCrumbs />
+                    </div>
+                </div>
                 <div className={styles.content}>
                     <div
                         className={`${styles.block as string} ${

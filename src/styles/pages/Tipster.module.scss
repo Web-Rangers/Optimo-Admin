@@ -47,6 +47,12 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+
+        .titleWithBreadCrumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
     }
     .content {
         display: grid;
@@ -219,13 +225,13 @@
             }
         }
     }
-}   
+}
 
 .modal {
     .tableContainer {
         width: 100%;
     }
-    div.modalTableHeader{
+    div.modalTableHeader {
         border: none;
     }
     .modalTableRow {

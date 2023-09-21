@@ -7,6 +7,7 @@ import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import { useState } from 'react';
 import Select from '@components/inputs/Select';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const data = Array.from(new Array(4).keys()).map(() => {
     return {
@@ -129,7 +130,10 @@ const Bookmakers: NextPage = () => {
             ) : null}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Bookmakers
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Bookmakers
+                        <BreadCrumbs />
+                    </div>
                 </div>
                 <div className={styles.block}>
                     <div className={styles.title}>Top 3</div>

@@ -1,0 +1,36 @@
+.breadCrumbs {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    .breadCrumbItem {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        color: #5b6871;
+        font-family: Noto Sans;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        .breadCrumbIcon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .currentLink {
+            color: var(--Main-Color, #7f3ffc);
+            font-family: Noto Sans;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px; 
+        }
+    }
+}

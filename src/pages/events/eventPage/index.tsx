@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { ReactSVG } from 'react-svg';
 import Table from '@components/ui/Table';
 import Link from 'next/link';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 interface planeProps {
     value: number;
@@ -93,7 +94,12 @@ const EventPage: NextPage = () => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.pageTitle}>Event page</div>
+                <div className={styles.pageTitle}>
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Event page
+                        <BreadCrumbs />
+                    </div>
+                </div>
                 <div className={styles.content}>
                     <div className={styles.teamsBlock}>
                         <div className={styles.rowTop}>
@@ -166,7 +172,9 @@ const EventPage: NextPage = () => {
                                         return (
                                             <Link
                                                 key={index}
-                                                href={'/events/eventPage/tipPage'}
+                                                href={
+                                                    '/events/eventPage/tipPage'
+                                                }
                                             >
                                                 <div className={styles.tip}>
                                                     <Image

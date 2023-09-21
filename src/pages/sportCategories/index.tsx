@@ -3,6 +3,7 @@ import styles from '@styles/pages/SportCategories.module.scss';
 import Table from '@components/ui/Table';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const data = [
     {
@@ -105,7 +106,12 @@ const Staff: NextPage = () => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.pageTitle}>Sports categories</div>
+                <div className={styles.pageTitle}>
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Sports categories
+                        <BreadCrumbs />
+                    </div>
+                </div>
                 <Table
                     columns={columns}
                     data={data}

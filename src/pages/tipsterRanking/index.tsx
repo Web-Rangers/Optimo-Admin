@@ -8,6 +8,7 @@ import Table from '@components/ui/Table';
 import Modal from '@components/modals/Modal';
 import Input from '@components/inputs/Input';
 import TextEditModal from '@components/modals/TextEditModal';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const data = Array.from(new Array(4).keys()).map((key) => {
     return {
@@ -315,7 +316,12 @@ const Tipster: NextPage = () => {
                 <EditSliderModal onBackClick={() => setSliderEdit(false)} />
             )}
             <div className={styles.container}>
-                <div className={styles.pageTitle}>Tipster Ranking</div>
+                <div className={styles.pageTitle}>
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Tipster Ranking
+                        <BreadCrumbs />
+                    </div>
+                </div>
                 <div className={styles.content}>
                     <div className={styles.column}>
                         <div className={styles.block}>

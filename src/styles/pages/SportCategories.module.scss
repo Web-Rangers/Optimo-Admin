@@ -1,5 +1,5 @@
 .container {
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
     height: calc(100vh - 80px);
     padding: 35px 45px;
     display: flex;
@@ -16,6 +16,12 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+
+        .titleWithBreadCrumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
     }
     .tableRow {
         grid-template-columns: 30% 30% 30% 5% 5%;
@@ -30,19 +36,19 @@
             object-fit: cover;
         }
     }
-    
+
     .imageCell {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
+
     .tableBlockCell {
         display: flex;
         align-items: center;
         justify-content: flex-start;
     }
-    
+
     .tableEditCell {
         display: flex;
         align-items: center;

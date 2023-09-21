@@ -7,6 +7,7 @@ import { ReactSVG } from 'react-svg';
 import Link from 'next/link';
 import ConfirmModal from '@components/modals/ConfirmModal';
 import Badge from '@components/ui/Badge';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const data = Array.from(new Array(20).keys()).map((key) => {
     return {
@@ -179,7 +180,10 @@ const Staff: NextPage = () => {
             ) : null}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Staff
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Staff
+                        <BreadCrumbs />
+                    </div>
                     <Link href={'/staff/add'}>
                         <button className={styles.fillButton}>
                             Add new staff

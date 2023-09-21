@@ -46,6 +46,12 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+
+        .titleWithBreadCrumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
     }
     .content {
         display: grid;
@@ -567,7 +573,7 @@
             }
         }
     }
-    .body{
+    .body {
         width: 100%;
     }
     .photoWrapper {
@@ -597,7 +603,7 @@
             line-height: 22px;
             letter-spacing: 0em;
             text-align: center;
-            color: #7F3FFC;
+            color: #7f3ffc;
             border-radius: 8px;
             cursor: pointer;
         }

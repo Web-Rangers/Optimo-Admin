@@ -1,5 +1,5 @@
 .container {
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
     height: calc(100vh - 80px);
     padding: 35px 45px;
     display: flex;
@@ -52,6 +52,12 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+
+        .titleWithBreadCrumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
     }
     .block {
         background-color: #fff;
@@ -88,15 +94,16 @@
             display: flex;
             align-items: center;
             gap: 40px;
-            >.column {
+            > .column {
                 flex: 0 0 50%;
             }
-            .imageContainer, .borderedImageContainer {
+            .imageContainer,
+            .borderedImageContainer {
                 position: relative;
                 padding-right: 6px;
-                &.borderedImageContainer{
+                &.borderedImageContainer {
                     padding: 8px;
-                    border: 1px solid #989A9E;
+                    border: 1px solid #989a9e;
                     border-radius: 50%;
                     height: 151px;
                     width: 151px;

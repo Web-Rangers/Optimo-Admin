@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 import Input from '@components/inputs/Input';
 import Link from 'next/link';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 interface StuffProfile {
     name: string;
@@ -175,7 +176,10 @@ const Users: NextPage = () => {
         <>
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Users
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Users
+                        <BreadCrumbs />
+                    </div>
                     <div className={styles.filterBlock}>
                         <Input
                             icon={

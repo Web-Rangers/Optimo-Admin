@@ -6,6 +6,7 @@ import Input from '@components/inputs/Input';
 import Radio from '@components/inputs/Radio';
 import CheckBox from '@components/ui/CheckBox';
 import ConfirmModal from '@components/modals/ConfirmModal';
+import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 
 const StaffEdit: NextPage = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,10 @@ const StaffEdit: NextPage = () => {
             )}
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
-                    Staff
+                    <div className={styles.titleWithBreadCrumbs}>
+                        Staff
+                        <BreadCrumbs />
+                    </div>
                     <button className={styles.fillButton}>Log out staff</button>
                 </div>
                 <div className={styles.block}>

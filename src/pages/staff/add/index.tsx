@@ -40,7 +40,6 @@ const StaffEdit: NextPage = () => {
                         Add staff
                         <BreadCrumbs />
                     </div>
-                    <button className={styles.fillButton}>Log out staff</button>
                 </div>
                 <div className={styles.block}>
                     <div className={styles.title}>Main</div>

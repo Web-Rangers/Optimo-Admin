@@ -37,7 +37,7 @@ const StaffEdit: NextPage = () => {
             <div className={styles.container}>
                 <div className={styles.pageTitle}>
                     <div className={styles.titleWithBreadCrumbs}>
-                        Staff
+                        Add staff
                         <BreadCrumbs />
                     </div>
                     <button className={styles.fillButton}>Log out staff</button>

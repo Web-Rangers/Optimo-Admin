@@ -59,7 +59,7 @@ const StaffEdit: NextPage = () => {
                             <Input
                                 labelStyle={{ color: '#201522' }}
                                 label="Nickname"
-                                placeholder="Mickname"
+                                placeholder="Nickname"
                             />
                         </div>
                         <div className={styles.borderedImageContainer}>

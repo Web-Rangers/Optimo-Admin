@@ -9,7 +9,6 @@ import Input from '@components/inputs/Input';
 import Select from '@components/inputs/Select';
 import Modal from '@components/modals/Modal';
 import { BreadCrumbs } from '@components/ui/BreadCrumbs';
-import Link from 'next/link';
 
 function ordinal_suffix_of(i: number) {
     const j: number = i % 10,
@@ -181,154 +180,16 @@ const Comp: NextPage = () => {
                 <div className={styles.pageHeader}>
                     <div className={styles.pageTitle}>
                         <div className={styles.titleWithBreadCrumbs}>
-                            Competition
+                            Edit competition
                             <BreadCrumbs />
                         </div>
                     </div>
-
-                    <div className={styles.tabSelect}>
-                        <div className={styles.selectName}>Competition:</div>
-                        <div className={styles.tabs}>
-                            <div
-                                className={classNames(styles.tabBtn, {
-                                    [`${styles.currentTab as string}`]:
-                                        tab === 1,
-                                })}
-                                onClick={() => setTab(1)}
-                            >
-                                Past
-                            </div>
-                            <div
-                                className={classNames(styles.tabBtn, {
-                                    [`${styles.currentTab as string}`]:
-                                        tab === 2,
-                                })}
-                                onClick={() => setTab(2)}
-                            >
-                                Current
-                            </div>
-                            <div
-                                className={classNames(styles.tabBtn, {
-                                    [`${styles.currentTab as string}`]:
-                                        tab === 3,
-                                })}
-                                onClick={() => setTab(3)}
-                            >
-                                Future
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                {tab === 1 && (
                     <div className={styles.content}>
-                        <div className={styles.pastCompWrapper}>
-                            {Array.from(new Array(5).keys()).map((key) => {
-                                return (
-                                    <div key={key} className={styles.block}>
-                                        <div className={styles.title}>
-                                            Name of competition
-                                            <button className={styles.text}>
-                                                <ReactSVG src="/images/icons/ui/ThinPencil.svg" />
-                                            </button>
-                                        </div>
-                                        <div className={styles.compBlock}>
-                                            <Image
-                                                alt="image"
-                                                src="/images/competetion/comp1.png"
-                                                className={styles.compImage}
-                                                width={302}
-                                                height={200}
-                                            />
-                                            <div className={styles.date}>
-                                                12.04.2022 - 14.06.2022
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
-                {tab === 2 && (
-                    <div className={styles.content}>
-                        <div className={styles.topContent}>
-                            <div className={styles.block}>
-                                <div className={styles.title}>
-                                    Current competition
-                                    <Link href={'/competition/edit'}>
-                                        <button className={styles.text}>
-                                            <ReactSVG src="/images/icons/ui/ThinPencil.svg" />
-                                        </button>
-                                    </Link>
-                                </div>
-                                <div className={styles.compBlock}>
-                                    <Image
-                                        alt="image"
-                                        src="/images/competetion/comp1.png"
-                                        className={styles.compImage}
-                                        width={302}
-                                        height={200}
-                                    />
-                                    <div className={styles.title}>
-                                        Name of competetion
-                                    </div>
-                                    <div className={styles.date}>
-                                        12.04.2022 - 14.06.2022
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.block}>
-                                <div className={styles.title}>
-                                    Upcoming competition
-                                    <button className={styles.text}>
-                                        <ReactSVG
-                                            src="/images/icons/ui/ChevronRight.svg"
-                                            style={{
-                                                transform: 'rotate(180deg)',
-                                            }}
-                                            className={styles.innactive}
-                                        />
-                                        <ReactSVG src="/images/icons/ui/ChevronRight.svg" />
-                                    </button>
-                                </div>
-                                <div className={styles.blockWrapper}>
-                                    <div className={styles.compBlock}>
-                                        <Image
-                                            alt="image"
-                                            src="/images/competetion/comp1.png"
-                                            className={styles.compImage}
-                                            width={302}
-                                            height={200}
-                                        />
-                                        <div className={styles.title}>
-                                            Name of competetion
-                                        </div>
-                                        <div className={styles.date}>
-                                            12.04.2022 - 14.06.2022
-                                        </div>
-                                    </div>
-                                    <div className={styles.compBlock}>
-                                        <Image
-                                            alt="image"
-                                            src="/images/competetion/comp1.png"
-                                            className={styles.compImage}
-                                            width={302}
-                                            height={200}
-                                        />
-                                        <div className={styles.title}>
-                                            Name of competetion
-                                        </div>
-                                        <div className={styles.date}>
-                                            12.04.2022 - 14.06.2022
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div className={styles.bottomContent}>
                             <div className={styles.block}>
                                 <div className={styles.title}>
-                                    Create a new competition
+                                    Edit competition
                                 </div>
                                 <div className={styles.inputContainer}>
                                     <div className={styles.title}>
@@ -478,137 +339,11 @@ const Comp: NextPage = () => {
                                     style={{ alignSelf: 'flex-end' }}
                                     className={styles.fillButton}
                                 >
-                                    Create
+                                    Save
                                 </button>
                             </div>
-                            <div className={styles.block}>
-                                <div
-                                    className={classNames(
-                                        styles.title,
-                                        styles.column
-                                    )}
-                                >
-                                    The presenters have won
-                                    <Select
-                                        className={styles.timeSelect}
-                                        items={[
-                                            {
-                                                title: 'New one first',
-                                                value: '1',
-                                            },
-                                        ]}
-                                        defaultValue="1"
-                                        onSelect={() => {
-                                            return;
-                                        }}
-                                        title=""
-                                        variant="text"
-                                    />
-                                </div>
-                                <div className={styles.compsWrapper}>
-                                    {Array.from(new Array(8).keys()).map(
-                                        (key) => {
-                                            return (
-                                                <div
-                                                    key={key}
-                                                    className={classNames(
-                                                        styles.compBlock,
-                                                        {
-                                                            [`${
-                                                                styles.index as string
-                                                            }`]: key === 2,
-                                                        }
-                                                    )}
-                                                    onClick={() =>
-                                                        setIsWinnersShow(true)
-                                                    }
-                                                >
-                                                    <span
-                                                        className={styles.name}
-                                                    >
-                                                        Name of competetion
-                                                    </span>
-                                                    <span
-                                                        className={styles.dates}
-                                                    >
-                                                        12.04.2023 - 14.04.2023
-                                                    </span>
-                                                </div>
-                                            );
-                                        }
-                                    )}
-                                </div>
-                            </div>
                         </div>
                     </div>
-                )}
-                {tab === 3 && (
-                    <div className={styles.content}>
-                        <div className={styles.pastCompWrapper}>
-                            {Array.from(new Array(3).keys()).map((key) => {
-                                return (
-                                    <div key={key} className={styles.block}>
-                                        <div className={styles.compBlock}>
-                                            <Image
-                                                alt="image"
-                                                src="/images/competetion/comp1.png"
-                                                className={styles.compImage}
-                                                width={302}
-                                                height={200}
-                                            />
-                                            <div>
-                                                <div className={styles.title}>
-                                                    Name of competition
-                                                </div>
-                                                <div className={styles.date}>
-                                                    12.04.2022 - 14.06.2022
-                                                </div>
-                                            </div>
-                                            <div className={styles.winners}>
-                                                <div className={styles.title}>
-                                                    Winners
-                                                </div>
-                                                <div className={styles.wrapper}>
-                                                    {Array.from(
-                                                        new Array(5).keys()
-                                                    ).map((key) => {
-                                                        return (
-                                                            <div
-                                                                key={key}
-                                                                className={
-                                                                    styles.winner
-                                                                }
-                                                            >
-                                                                <Image
-                                                                    className={
-                                                                        styles.winnerImage
-                                                                    }
-                                                                    width={35}
-                                                                    height={35}
-                                                                    src={
-                                                                        '/images/users/Photo1.png'
-                                                                    }
-                                                                    alt="winner image"
-                                                                ></Image>
-                                                            </div>
-                                                        );
-                                                    })}
-                                                    <div
-                                                        className={
-                                                            styles.winner
-                                                        }
-                                                    >
-                                                        +5
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
             </div>
         </>
     );

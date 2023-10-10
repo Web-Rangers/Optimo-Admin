@@ -32,6 +32,7 @@ const Route2LabelMap: RoutMapArray = {
     '/staff/add': 'Add staff',
     '/tipsterRanking': 'Tipster Ranking',
     '/users/userPage': 'User page',
+    '/competition/edit': 'Edit competition'
 };
 
 function titleCaseWord(str: string) {

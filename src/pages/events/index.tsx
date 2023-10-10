@@ -272,7 +272,7 @@ const Events: NextPage = () => {
                             onSelect={() => 0}
                         />
                         <div className={styles.resetBtn}>
-                            <ReactSVG src="/images/icons/ui/x.svg" />
+                            <ReactSVG src="/images/icons/ui/X.svg" />
                         </div>
                     </div>
                 </div>

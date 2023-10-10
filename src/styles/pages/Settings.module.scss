@@ -140,6 +140,14 @@
     min-width: 720px;
     .tableContainer {
         width: 100%;
+        z-index: 10;
+        overflow: visible;
+        .table{
+            overflow: visible;
+            >div {
+                overflow: visible;
+            }
+        }
     }
     .modalTableRow {
         grid-template-columns: 25% 30% 25% 20%;
@@ -213,6 +221,13 @@
     }
 
     .modalActions {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .modalActionsLeft{
         width: 100%;
         display: flex;
         align-items: center;

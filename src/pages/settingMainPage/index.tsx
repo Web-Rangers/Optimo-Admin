@@ -33,6 +33,14 @@ const sports = Array.from(new Array(4).keys()).map(() => {
     };
 });
 
+const sportsTemplate = {
+    id: '1234',
+    name: 'new sport',
+    image: '',
+    status: true,
+    isEdit: false,
+};
+
 interface ModalProps {
     onBackClick?: () => void;
     onConfirm?: () => void;
@@ -172,6 +180,7 @@ const EditModal = ({ onCancel, onApply }: CreateModalProps) => {
 
 function EditHeaderModal({ onBackClick, onConfirm }: ModalProps) {
     const [selected, setSelected] = useState('1');
+    const [data,setData] = useState(sports);
     const columns = [
         {
             key: 'id',
@@ -337,14 +346,16 @@ function EditHeaderModal({ onBackClick, onConfirm }: ModalProps) {
             <div className={styles.tableContainer}>
                 <Table
                     columns={columns}
-                    data={sports}
+                    data={data}
                     headerClassName={styles.modalTableHeader}
                     rowClassName={styles.modalTableRow}
                     className={styles.table}
                 />
             </div>
-            <div className={styles.modalActions}>
-                <button className={styles.textBtn}>+ Add category </button>
+            <div className={styles.modalActionsLeft}>
+                <button className={styles.textBtn} onClick={()=>{
+                    setData([...data, sportsTemplate]);
+                }}>+ Add category </button>
             </div>
         </Modal>
     );

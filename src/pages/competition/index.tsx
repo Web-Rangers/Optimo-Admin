@@ -10,6 +10,7 @@ import Select from '@components/inputs/Select';
 import Modal from '@components/modals/Modal';
 import { BreadCrumbs } from '@components/ui/BreadCrumbs';
 import Link from 'next/link';
+import SwitchButton from '@components/ui/SwitchButton';
 
 function ordinal_suffix_of(i: number) {
     const j: number = i % 10,
@@ -489,21 +490,7 @@ const Comp: NextPage = () => {
                                     )}
                                 >
                                     The presenters have won
-                                    <Select
-                                        className={styles.timeSelect}
-                                        items={[
-                                            {
-                                                title: 'New one first',
-                                                value: '1',
-                                            },
-                                        ]}
-                                        defaultValue="1"
-                                        onSelect={() => {
-                                            return;
-                                        }}
-                                        title=""
-                                        variant="text"
-                                    />
+                                    <SwitchButton falseLabel='New ones first' trueLabel='Old ones first'/>
                                 </div>
                                 <div className={styles.compsWrapper}>
                                     {Array.from(new Array(8).keys()).map(

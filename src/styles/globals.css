@@ -15,6 +15,11 @@
 }
 
 @font-face {
+  font-family: Work Sans;
+  src: url('/fonts/WorkSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
   font-family: Noto Sans;
   src: url('/fonts/NotoSans-Regular.ttf') format('truetype');
 }

@@ -1,0 +1,34 @@
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 2px;
+    cursor: pointer;
+    .label {
+        color: var(--Main-Color, #7f3ffc);
+        font-family: Work Sans;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.26px;
+    }
+    .icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease-out;
+        &.rotate {
+            transform: rotate(-180deg);
+        }
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

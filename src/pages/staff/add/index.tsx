@@ -49,16 +49,19 @@ const StaffEdit: NextPage = () => {
                                 labelStyle={{ color: '#201522' }}
                                 label="Fullname"
                                 placeholder="Fullname"
+                                className={styles.shortInput}
                             />
                             <Input
                                 labelStyle={{ color: '#201522' }}
                                 label="Email"
                                 placeholder="Email"
+                                className={styles.shortInput}
                             />
                             <Input
                                 labelStyle={{ color: '#201522' }}
                                 label="Nickname"
                                 placeholder="Nickname"
+                                className={styles.shortInput}
                             />
                         </div>
                         <div className={styles.borderedImageContainer}>

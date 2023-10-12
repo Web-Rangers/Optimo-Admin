@@ -89,6 +89,9 @@
                 letter-spacing: 0em;
                 text-align: left;
             }
+            .shortInput {
+                max-width: 420px;
+            }
         }
         .row {
             display: flex;

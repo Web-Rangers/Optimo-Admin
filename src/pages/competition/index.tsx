@@ -333,7 +333,7 @@ const Comp: NextPage = () => {
                                 </div>
                                 <div className={styles.inputContainer}>
                                     <div className={styles.title}>
-                                        Backround
+                                        Background
                                     </div>
                                     <div className={styles.uploadFile}>
                                         <ReactSVG src="/images/icons/ui/CloudUpload.svg" />
